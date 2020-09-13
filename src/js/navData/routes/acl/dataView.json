@@ -1,0 +1,42 @@
+[
+	{
+	  "permissionName": "Admin",
+		"permissionDescription": "Admin rights",
+		"location":"bengaluru",
+		"assetType": "BGS-02",
+		"assetModel":"Elevator",
+		"assetId": "BGS-02"
+	},
+	{
+	  "permissionName": "Admin",
+		"permissionDescription": "Admin rights",
+		"location":"bengaluru",
+	  "assetType": "BGS-02",
+		"assetModel":"Elevator",
+		"assetId": "BGS-02"
+	},
+	{
+	  "permissionName": "Admin",
+		"permissionDescription": "Admin rights",
+		"location":"bengaluru",
+		"assetType": "BGS-02",
+		"assetModel":"Elevator",
+		"assetId": "BGS-02"
+	},
+	{
+	  "permissionName": "Admin",
+		"permissionDescription": "Admin rights",
+		"location":"bengaluru",
+	  "assetType": "BGS-02",
+		"assetModel":"Elevator",
+		"assetId": "BGS-02"
+	},
+	{
+	  "permissionName": "Admin",
+		"permissionDescription": "Admin rights",
+		"location":"bengaluru",
+		"assetType": "BGS-02",
+		"assetModel":"Elevator",
+		"assetId": "BGS-02"
+	}
+]

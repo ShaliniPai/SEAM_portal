@@ -1,0 +1,6 @@
+{
+    "userList":[{"user":"SystemAdmin"},{"user":"TenantUser"},{"user":"TenantAdmin"}],
+    "menu":[{"permissionName":"permission1"},{"permissionName":"permission2"},{"permissionName":"permission3"}],
+    "api":[{"permissionName":"permission1"},{"permissionName":"permission2"},{"permissionName":"permission3"}],
+    "data":[{"permissionName":"permission1"},{"permissionName":"permission2"},{"permissionName":"permission3"}]
+}

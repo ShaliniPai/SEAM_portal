@@ -1,0 +1,52 @@
+<div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+    <div class="container-fluid">
+        <!--ko if:ready()-->
+        <div id="menu" data-bind="ojComponent:{ component: 'ojNavigationList', 
+                                                  selection: state,
+                                                  optionChange: selectHandler,
+                                                   edge: 'top',
+                                                    navigationLevel: 'application',
+                                                  drillMode: 'none' }" class="oj-navigationlist-item-dividers oj-md-condense oj-md-justify-content-center oj-lg-justify-content-flex-end pull-right">
+            <br/>
+            <ul data-bind="foreach: routesArray">
+                <li role="presentation" class="active" data-bind="attr: {id: value}">
+                    <a href="#">
+                        <span class="oj-navigationlist-item-icon"><i data-bind="css:css"> </i></span>
+                        <span data-bind="text: label" ></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--/ko-->
+
+
+
+        <!--        ko if:!ready()-->
+        <div class="overlay col-md-12">
+            <i class="fa fa-refresh fa-spin fa-5x"></i>
+        </div>
+        <!--/ko-->
+
+
+        <!--ko if:ready()-->
+        <div id="assetRoute" role="main" class="oj-xl-12 oj-lg-12 oj-sm-12 oj-flex-item oj-flex oj-margin oj-flex-item"
+             data-bind="ojModule:{name: value,params:params}">
+        </div>
+        <!--/ko-->
+
+    </div>
+</div>
+
+
+<!--<div class="setupHeading oj-xl-12 oj-lg-12 oj-md-12 oj-flex-item">
+    <div class="pull-right" align="right"> 
+        <button class="btn btn-primary" href="#!/asset/assetList"  id="" data-bind="click: goToList"><span class="glyphicon glyphicon-list"></span> List Asset</button>
+        <button class="btn btn-primary" href="#!/asset/assetConfig"   data-bind="click: assetConfig"><span class="glyphicon fa fa-level-up"></span> Asset Levels</button>           
+        <button class="btn btn-primary" href="#!/asset/assetModel"   data-bind="click: goToAssetModelList"><span class="glyphicon fa fa-gear"></span> Asset Models</button>
+        <button class="btn btn-primary" href="#!/asset/assetType"   data-bind="click: goToAssetType"><span class="glyphicon fa fa-gear"></span> Asset Types</button>
+        <button class="btn btn-primary" href="#!/asset/assetTree"   data-bind="click: loadTree"><span class="glyphicon glyphicon-tree-conifer"></span> Asset Tree</button>
+    </div>
+</div>-->
+
+
+

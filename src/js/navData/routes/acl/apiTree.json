@@ -1,0 +1,173 @@
+[{
+  "attr": {
+    "title": "device",
+    "id": "device"
+  },
+  "children": [
+    {
+      "attr": {
+        "title": "get",
+        "id": "get"
+      },
+      "children": [
+        {
+          "attr": {
+            "title": "/",
+            "value": "/",
+            "id": "DEV-1537354850322.182",
+            "module": "device",
+            "method": "get"
+          }
+        },
+        {
+          "attr": {
+            "title": "/device/getactivedevices",
+            "value": "/device/getactivedevices",
+            "id": "DEV-1537354850322.325",
+            "module": "device",
+            "method": "get"
+          }
+        },
+        {
+          "attr": {
+            "title": "/device/getdevicecertificate/:deviceTenant/:deviceName",
+            "value": "/device/getdevicecertificate/:deviceTenant/:deviceName",
+            "id": "DEV-1537354850322.7708",
+            "module": "device",
+            "method": "get"
+          }
+        }
+      ]
+    },
+    {
+      "attr": {
+        "title": "post",
+        "id": "post"
+      },
+      "children": [
+        {
+          "attr": {
+            "title": "/device/search",
+            "value": "/device/search",
+            "id": "DEV-1537354850322.5305",
+            "module": "device",
+            "method": "post"
+          }
+        },
+        {
+          "attr": {
+            "title": "/device",
+            "value": "/device",
+            "id": "DEV-1537354850322.14",
+            "module": "device",
+            "method": "post"
+          }
+        },
+        {
+          "attr": {
+            "title": "/device/deactivate",
+            "value": "/device/deactivate",
+            "id": "DEV-1537354850322.669",
+            "module": "device",
+            "method": "post"
+          }
+        },
+        {
+          "attr": {
+            "title": "/device/activate",
+            "value": "/device/activate",
+            "id": "DEV-1537354850322.3313",
+            "module": "device",
+            "method": "post"
+          }
+        },
+        {
+          "attr": {
+            "title": "/device/updatedeviceShadow",
+            "value": "/device/updatedeviceShadow",
+            "id": "DEV-1537354850322.7495",
+            "module": "device",
+            "method": "post"
+          }
+        },
+        {
+          "attr": {
+            "title": "/device/ota/getImage",
+            "value": "/device/ota/getImage",
+            "id": "DEV-1537354850322.9446",
+            "module": "device",
+            "method": "post"
+          }
+        },
+        {
+          "attr": {
+            "title": "/device/ota/uploadImage",
+            "value": "/device/ota/uploadImage",
+            "id": "DEV-1537354850322.3442",
+            "module": "device",
+            "method": "post"
+          }
+        },
+        {
+          "attr": {
+            "title": "/device/ota/getjob",
+            "value": "/device/ota/getjob",
+            "id": "DEV-1537354850322.28",
+            "module": "device",
+            "method": "post"
+          }
+        },
+        {
+          "attr": {
+            "title": "/device/ota/createJob",
+            "value": "/device/ota/createJob",
+            "id": "DEV-1537354850322.599",
+            "module": "device",
+            "method": "post"
+          }
+        },
+        {
+          "attr": {
+            "title": "/updateEvent",
+            "value": "/updateEvent",
+            "id": "DEV-1537354850322.537",
+            "module": "device",
+            "method": "post"
+          }
+        }
+      ]
+    },
+    {
+      "attr": {
+        "title": "put",
+        "id": "put"
+      },
+      "children": [
+        {
+          "attr": {
+            "title": "/device/assigndevice",
+            "value": "/device/assigndevice",
+            "id": "DEV-1537354850322.809",
+            "module": "device",
+            "method": "put"
+          }
+        },
+        {
+          "attr": {
+            "title": "/device/:deviceName",
+            "value": "/device/:deviceName",
+            "id": "DEV-1537354850322.2087",
+            "module": "device",
+            "method": "put"
+          }
+        }
+      ]
+    },
+    {
+      "attr": {
+        "title": "delete",
+        "id": "delete"
+      }
+    }
+  ]
+}]

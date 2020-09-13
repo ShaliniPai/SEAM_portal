@@ -1,0 +1,31 @@
+
+<!--ko if:ready()-->
+<div class="container no-pad">
+    <div class="row bg-gray-light no-pad">
+        <div role="navigation" class="oj-web-applayout-max-width oj-web-applayout-navbar bg-gray-light no-pad">
+            <div data-bind="ojComponent: {
+              component: 'ojNavigationList',
+              navigationLevel: 'application',
+              selection: router.stateId, 
+              edge: 'top'}"
+                 class="oj-web-applayout-navbar oj-sm-only-hide oj-md-condense ">
+                <ul class="nav" data-bind="foreach: router.states">
+                    <li role="presentation" class="active bold" data-bind="attr: {id: id}">
+                        <a data-bind="text: label" ></a>
+                    </li>
+                </ul>
+            </div>
+            <hr style=" margin: 0">
+        </div>
+    </div>
+</div>
+
+    <div data-bind="if: router.stateId()" class="bg-white">
+      <div data-bind="with: router.currentState()">
+          <div id="mainContent" role="main" class="oj-xl-12 oj-lg-12 oj-sm-12 oj-flex-item oj-flex  oj-flex-item"
+               data-bind="ojModule: value">
+          </div>
+      </div>
+  </div>
+
+<!--/ko-->

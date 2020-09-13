@@ -1,0 +1,85 @@
+<div class="box no-border col-md-12 no-padding" style='min-height:250px'>
+    <div class='box-header' style="background-color: #005691; color: white">
+        <div id="enerVal" class='col-md-12'>
+            <span  style=" font-family: Boschsansreg; font-size: 18px; margin-bottom: 35px">Elevator Metrics</span>          
+        </div>
+
+    </div>
+    <!--    ko if:ready-->
+    <div data-bind='with:dbMetric'>
+        <div class='box-body col-md-4 col-sm-4 no-padding'>          
+            <oj-chart id="pieChart"
+                      type="pie"
+                      data="[[$parent.dataProvider]]"
+                      style-defaults.pie-inner-radius="[[$parent.innerRadius]]"
+                      animation-on-data-change="auto"
+                      pie-center.label="[[$parent.centerLabel]]"
+                      pie-center.label-style="[[$parent.labelStyle]]"
+                      legend.rendered ="off"
+                      style="max-width:500px;width:100%;height:250px">
+
+                <template slot='itemTemplate' data-oj-as='item'>
+                    <oj-chart-item 
+                        value='[[item.data.value]]'
+                        label='[[item.data.label]]'
+                        group-id='[[ [item.data.group] ]]'
+                        series-id='[[item.data.series]]'
+                        color='[[item.data.color]]'> 
+                    </oj-chart-item>
+                </template>
+            </oj-chart>
+        </div>
+        
+      <div class='box-body col-md-4 col-sm-4 no-padding'>
+            <oj-chart id="pieChart"
+                      type="pie"
+                      data="[[$parent.dataProvider]]"
+                      style-defaults.pie-inner-radius="[[$parent.innerRadius]]"
+                      animation-on-data-change="auto"
+                      pie-center.label="[[$parent.centerLabel]]"
+                      pie-center.label-style="[[$parent.labelStyle]]"
+                      legend.rendered ="off"
+                      style="max-width:500px;width:100%;height:250px">
+
+                <template slot='itemTemplate' data-oj-as='item'>
+                    <oj-chart-item 
+                        value='[[item.data.value]]'
+                        label='[[item.data.label]]'
+                        group-id='[[ [item.data.group] ]]'
+                        series-id='[[item.data.series]]'
+                        color='[[item.data.color]]'> 
+                    </oj-chart-item>
+                </template>
+            </oj-chart>
+        </div>
+
+        <div class="col-md-4 col-sm-4 no-padding bg-gray-light" style="height:250px">
+            <div class="pad box-pane-right ">
+                <div class="bold  text-primary" style="text-align:center; font-family: Boschsansreg; font-size: 12px;"> Avg Elevator/Day</div>
+
+                <div class="description-block border-bottom  pad-top-10">                    
+                    <span style=" font-family: Boschsansreg; font-size: 14px;" data-bind='text:floors ||0'></span><br>
+                    <span class="dbTitle">Floors</span>
+                </div>
+                <!-- /.description-block -->
+                <div class="description-block border-bottom pad-top-10  border-top-black">                      
+                    <span style=" font-family: Boschsansreg; font-size: 14px;" data-bind='text:energy ||0'>60000</span><br>
+                    <span class="dbTitle">Energy</span>
+                </div>
+                <!-- /.description-block -->
+                <div class="description-block pad-top-10  border-top-black">                      
+                    <span style=" font-family: Boschsansreg; font-size: 14px;" data-bind='text:activeHrs||0'>60000</span><br>
+                    <span class="dbTitle">Active Hours</span>
+                </div>
+                
+                <!-- /.description-block -->
+            </div>
+        </div>
+    </div>
+    <!--/ko-->
+    <!--        ko if:!ready()-->
+    <div class="overlay col-md-12" style="background-color: #005691; color: white">
+        <i class="fa fa-refresh fa-spin fa-5x"></i>
+    </div>
+    <!--/ko-->
+</div>

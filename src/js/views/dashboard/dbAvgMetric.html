@@ -1,0 +1,76 @@
+<div class="box box-primary no-border col-md-12 no-padding" style='height:305px;border-radius: 10px'>
+    <div class='box-header'>
+        <div id="enerVal" class='col-md-12 col-xs-12'>
+            <span class="text-primary" style=" font-family: Boschsansreg; font-size: 15px;">Elevator Utilization</span>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-12 col-xs-12" style="height:90px">
+            <!--    ko if:ready-->
+            <!-- <div data-bind='with:dbMetric'> -->
+                <div class='box-body no-padding'>
+                    <oj-chart id="pieChart"
+                    type="pie"
+                    series="[[pieSeriesValue]]"
+                    groups="[[pieGroupsValue]]"
+                    style-defaults.pie-inner-radius="[[innerRadius]]"
+                    style-defaults.selection-effect="explode"
+                    style-defaults.three-d-effect="off"
+                    animation-on-data-change="auto"    
+                    pie-center.label="24 Hours"           
+                    value-formats.label.converter="[[numberConverter]]"
+                    value-formats.value.converter="[[numberConverter]]"
+                    value-formats.series.tooltip-label="Utilization Type:"
+                    value-formats.value.tooltip-label="Utilization Hours:"
+                    hover-behavior="dim" 
+                    style-defaults.data-label-position="center"
+                    style="max-width:600px;width:100%;height:120px">
+          </oj-chart>
+                </div>
+            <!-- </div> -->
+            <!--/ko-->
+        </div>
+        <div class="col-md-12 col-xs-12" style="margin-top:30px;">
+            <!--    ko if:ready-->
+            <div data-bind='with:dbMetric'>
+
+                <table class='table table-striped table-condensed table-bordered no-margin' style="width:100%">
+                    <tr style=" font-family: Boschsansbold; font-size: 12px;">
+                        <td height="25" class="text-center">Metrics</td>
+                        <td height="25" class="text-center">Today</td>
+                        <td height="25" class="text-center">Yesterday</td>
+                        <!--<td height="30" class="text-center">% Change</td>-->
+                    </tr>
+                    <tr style="font-size: 12px;">
+                        <td height="30" class="text-center">Total Floors</td>
+                        <td height="30" class="text-center"><span class= "badge label" data-bind="text:floors.toFixed(2) ||0,css:(floors==='0'?'label-danger':(floors<='10'?'label-default':'label-default'))"></span></td>
+                        <td height="30" class="text-center"><span class= "badge label" data-bind="text:prevFloors.toFixed(2)  ||0,css:(prevFloors==='0'?'label-danger':(prevFloors<='10'?'label-default':'label-default'))"></span></td>
+                        <!--<td height="30" class="text-center"><span class=" fa fa-angle-left" data-bind="text:' '+floorsPct+'%',css:(floorsPct > 0)?'text-green fa-angle-up':((floorsPct < 0)?'text-danger fa-angle-down':'text-yellow fa-angle-left')">4%</span></td>-->
+                    </tr>
+                    <tr style="font-size: 12px;">
+                        <td height="30" class="text-center">Total Energy (kWh)</td>
+                        <td height="30" class="text-center"><span class= "badge label" data-bind="text:energy.toFixed(2) ||0,css:(energy==='0'?'label-danger':(energy<='10'?'label-default':'label-default'))"></span></td>
+                        <td height="30" class="text-center"><span class= "badge label" data-bind="text:prevEnergy.toFixed(2) ||0,css:(prevEnergy==='0'?'label-danger':(prevEnergy<='10'?'label-default':'label-default'))"></span></td>
+                        <!--<td height="30" class="text-center"><span class=" fa fa-angle-left" data-bind="text:' '+energyPct+'%',css:(energyPct > 0)?'text-green fa-angle-up':(energyPct < 0)?'text-danger fa-angle-down':'text-yellow fa-angle-left'">-->
+                        <!--4%</span></td>-->
+                    </tr>                    
+		    <tr style="font-size: 12px;">
+                        <td height="30" class="text-center"> Active Hours</td>
+                        <td height="30" class="text-center"><span class= "badge label" data-bind="text:activeHrs ||0,css:(activeHrs==='0'?'label-danger':(activeHrs<='10'?'label-default':'label-default'))"></span></td>
+                        <td height="30" class="text-center"><span class= "badge label" data-bind="text:prevActiveHrs||0,css:(prevActiveHrs==='0'?'label-danger':(prevActiveHrs<='10'?'label-default':'label-default'))"></span></td>
+                        <!--<td height="30" class="text-center"><span class=" fa fa-angle-left" data-bind="text:' '+activeHrsPct+'%',css:(activeHrsPct > 0)?'text-green fa-angle-up':(activeHrsPct < 0)?'text-danger fa-angle-down':'text-yellow fa-angle-left'">-->
+                        <!--0%</span></td>-->
+                    </tr>
+                </table>
+
+            </div>
+            <!--/ko-->
+        </div>
+    </div>
+    <!--        ko if:!ready()-->
+    <div class="overlay col-md-12" style="background-color: #005691; color: white">
+        <i class="fa fa-refresh fa-spin fa-5x"></i>
+    </div>
+    <!--/ko-->
+</div>

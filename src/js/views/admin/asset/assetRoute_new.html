@@ -1,0 +1,32 @@
+<div class="container-fluid">
+
+    <!--ko if:ready()-->
+    <div id="menu" data-bind="ojComponent:{ component: 'ojNavigationList', 
+                                                  selection: router.stateId(),
+                                                  beforeSelect: selectHandler,
+                                                   edge: 'top',
+                                                    navigationLevel: 'application',
+                                                  drillMode: 'none' }" class="oj-navigationlist-item-dividers oj-md-condense oj-md-justify-content-center oj-lg-justify-content-flex-end  pull-right">
+        <br/>
+        <ul data-bind="foreach: router.states">
+            <li role="presentation" class="active" data-bind="attr: {id: id}">
+                <a data-bind="text: label" ></a>
+            </li>
+        </ul>
+    </div>
+
+    <div data-bind="if: router.stateId()">
+        <div data-bind="with: router.currentState()">
+            <div id="mainContent" role="main" class="oj-xl-12 oj-lg-12 oj-sm-12 oj-flex-item oj-flex oj-panel oj-margin oj-flex-item"
+                 data-bind="ojModule: value">
+            </div>
+        </div>
+    </div>
+    <!--/ko-->
+    
+    <!--        ko if:!ready()-->
+    <div class="overlay col-md-12">
+        <i class="fa fa-refresh fa-spin fa-5x"></i>
+    </div>
+    <!--/ko-->
+</div>

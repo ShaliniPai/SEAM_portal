@@ -1,0 +1,30 @@
+
+
+
+<div class='box box-primary' id='assetTree'>
+
+    <div class='box-header'>
+        <div class='title text-primary bold'>Select Assets</div>  
+        <div class='box-tools pull-right'>
+            <button type="button" class='btn btn-box-tool' onclick="$('#container').jstree('close_all');"><i class='fa fa-compress'></i></button>
+            <button type="button" class='btn btn-box-tool' onclick="$('#container').jstree('open_all');"><i class='fa fa-expand'></i></button>
+        </div>
+    </div>
+    <div class='box-body'>
+<!--        ko if:ready-->
+        <form id="s">
+            <input type="search" id="q" />
+            <button data-bind='click:searchNode'>Search</button>
+        </form>
+        <br>
+        <div id="container">
+        </div>
+        <!--        /ko-->
+    </div>
+<!--    ko if:monViewModel.lastrefresh-->
+    <div class='box-footer'>
+        <button class='btn btn-primary' style='width: 100%' data-bind="click:saveUserAssets"><i class='fa fa-save'></i> Save</button>
+    </div>
+<!--/ko-->
+</div>
+

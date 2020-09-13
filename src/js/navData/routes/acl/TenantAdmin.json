@@ -1,0 +1,18 @@
+{
+    "success": "true",
+    "routes": {
+        "locations": {
+            "label": "Data Security",
+            "value": "acl/data/dataPermissionRoute"
+        },
+        "userProfile": {
+            "label": "API Security",
+            "value": "acl/api/apiPermissionRoute",
+            "isDefault": true
+        },
+        "userMapping": {
+            "label": "User Role Mapping",
+            "value": "acl/user/userRoleMappingRoute"
+        }
+    }
+}

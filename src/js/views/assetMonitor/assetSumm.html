@@ -1,0 +1,72 @@
+<!--ko foreach:liftsFiltered-->
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <!-- Widget: user widget style 1 -->
+    <div class="box box-widget widget-lift">
+        <!-- Add the bg color to the header using any of the bg-* classes -->
+        <div class=" text-white no-padding hoverClick widget-lift-header"   data-bind="click: function(){$parent.loadDetail($data)},  css: { 'header-Active': isOnline,'header-Off':!isOnline }">
+            <div style=" display: flex; justify-content: space-between">
+                <span class="widget-lift-username text-white" data-bind='text:assetName'></span>
+                <span class="widget-lift-username" style=" font-family: Boschsansbold; font-size: 16vw; margin-right: 10px" data-bind='text:status'></span>
+            </div>
+        </div>
+
+        <div class="box-footer no-padding no-border">
+            <div class="row  ">
+                <div class="col-sm-4 border-right border-bottom">
+                    <div class="description-block " >
+                        <span class="widget-lift-liftmetric" data-bind="text: floors">1</span>
+                        <span class="widget-lift-liftmetric-name">Floors</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 border-right border-bottom">
+                    <div class="description-block">
+                        <span class="widget-lift-liftmetric" data-bind="text: doorCyc">2400</span>
+                        <span class="widget-lift-liftmetric-name">Door Cycle</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4  border-bottom">
+                    <div class="description-block">
+                        <span class="widget-lift-liftmetric" data-bind="text: energy">5000</span>
+                        <span class="widget-lift-liftmetric-name">Energy(kWh)</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                        <span class="widget-lift-liftmetric" data-bind="text: activeHrs||0">75%</span>
+                        <span class="widget-lift-liftmetric-name">Hours</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                        <span class="widget-lift-liftmetric" data-bind="text: alerts">80%</span>
+                        <span class="widget-lift-liftmetric-name">Alerts</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4">
+                    <div class="description-block">
+                        <span class="widget-lift-liftmetric" data-bind="text:maintDt">95%</span>
+                        <span class="widget-lift-liftmetric-name">Serviced</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <div class="box-footer dbTitle">Metrics since last maintenance: <span class="italic bold" data-bind="text:maintDt"></span></div>
+    </div>
+</div>      
+<!--/ko-->

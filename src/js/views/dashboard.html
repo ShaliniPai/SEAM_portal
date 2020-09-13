@@ -1,0 +1,67 @@
+<div id='dashboard' class='container-fluid'>
+
+    <div class="row pad">
+        <div class="col-md-12">
+            <div class="box no-border no-shadow" style="background: none">
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <!-- /.col -->
+                        <div class="col-md-2 col-sm-4">
+                            <div id="dbmetric"
+                                 data-bind="ojModule:{name: 'dashboard/dbOnlinePi'}">
+                            </div>
+                        </div>
+                        <!--                        
+                                                 <div class="col-md-2">
+                                                    <div id="dbmetric"
+                                                         data-bind="ojModule:{name: 'dashboard/dbMetricCol'}">
+                                                    </div>
+                                                </div>-->
+
+                        <div class="col-md-4 col-sm-8">
+                            <div id="dbmetric"
+                                 data-bind="ojModule:{name: 'dashboard/dbAvgMetric'}">
+                            </div>
+                        </div>
+
+                        <!-- /.col -->
+                        <div class="col-md-6 col-sm-12">
+                            <!-- Sales Chart Canvas -->
+                            <div id="mapMod"
+                                 data-bind="ojModule:{name: 'dashboard/dbMap'}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-6 no-padding">
+                            <div id='assetsTbl' class="col-md-12" data-bind="ojModule: 'dashboard/dbAssetTbl'"></div>                    
+                        </div>
+
+                        <div class="col-md-6 no-padding">
+                            <div id='assetsTbl' class="col-md-12" data-bind="ojModule: 'dashboard/dbNotifications'"></div>                    
+                        </div>
+                    </div>
+
+
+                    <!-- /.row -->
+                </div>
+                <!-- ./box-body -->
+                <!-- /.box-footer -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    
+<!--        <div class="row pad">
+        <div class=" col-md-12 col-sm-12">            
+            <div class="pull-right pad">
+                <span  style=" font-family: Boschsansreg; font-size: 14px;  color: #0b559b" data-bind=" text: 'Last Refreshed: '+lastrefresh()"></span>
+                <span class="btn btn-default" data-bind='click:refreshDb'><i class="fa fa-refresh"></i></Span>
+            </div>
+        </div>
+    </div>-->
+    
+    
+</div>

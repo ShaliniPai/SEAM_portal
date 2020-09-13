@@ -1,0 +1,18 @@
+<div class='container-fluid' id="monitor">
+    <div class='row pad'>
+        <div class=" col-md-12">            
+            <div class="pull-right pad">
+                <span  style=" font-family: Boschsansreg; font-size: 14px;  color: #525f6b" data-bind=" text: 'Last Refreshed: '+lastrefresh()"></span>
+                <span class="btn btn-default" data-bind='click:refreshDb'><i class="fa fa-refresh"></i></Span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div id='assetSummComp' class="col-md-12" data-bind="ojModule: 'assetMonitor/assetSumm'"></div>  
+        </div>
+        <div class='col-md-3 col-sm-8'>
+            <div id='assetTreeComp' class="col-md-12" data-bind="ojModule: 'assetMonitor/assetTree'"></div>                    
+        </div>
+    </div>
+</div>

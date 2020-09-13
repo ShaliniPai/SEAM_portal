@@ -1,0 +1,26 @@
+{
+    "success": "true",
+    "routes": {
+        "assetList": {
+            "label": "Assets",
+            "value": "admin/asset/assetList",
+            "css": "fa fa-cubes",
+            "isDefault": true
+        },
+        "assetConfig": {
+            "label": "Asset Config",
+            "value": "admin/asset/assetConfig",
+            "css": "fa fa-level-up"
+        },
+        "assetModelList": {
+            "label": "Asset Model",
+            "value": "admin/asset/assetModelList",
+            "css": "fa fa-cube"
+        },
+        "assetTree": {
+            "label": "Asset Tree",
+            "value": "admin/asset/assetTree",
+            "css": "glyphicon glyphicon-tree-conifer"
+        }
+    }
+}

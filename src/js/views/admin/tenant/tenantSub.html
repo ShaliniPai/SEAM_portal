@@ -1,0 +1,56 @@
+<div class="box box-primary">
+    <div class="box-header">
+        <h2>Sub Tenants</h2>
+    </div>
+    <div class="box-body">
+        <div class="form-horizontal" data-bind="with:tenant()">
+            <div class="form-group col-md-6">
+                <label for="inputName" class="col-sm-2 control-label">Tenant Id</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputName" disabled="true" data-bind="textInput:tenantId">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputName" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputName" disabled="true" data-bind="textInput:tenantName">
+                </div>
+            </div>                
+        </div>            
+    </div>
+
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Sub Tenants</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="thead">#</th>
+                        <th class="thead">Tenant Id</th>
+                        <th class="thead">Tenant Name</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:subTenantArr">
+                    <tr>
+                        <td data-bind="text:$index()+1"></td>
+                        <td><input type="text" data-bind="textInput:tenantId"></td>
+                        <td><div type="text" data-bind="text:tenantName"></div></td>                            
+                        <td><btn class="btn btn-danger fa fa-trash" data-bind="click: function() {$parent.deleteRow($data,$index)}"></btn></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+
+    <div class="box-footer">
+        <button class="btn btn-primary " data-bind="click: save"><i class="fa fa-save"> Save</i></button>
+        <button class="btn btn-secondary" data-bind="click: goToTenantList"><i class="fa"> Close</i></button>
+        <button class="btn btn-success" data-bind="click: addTenant"><i class="fa fa-plus"> Add Sub-Tenant</i></button>
+        <button class="btn btn-primary pull-right" data-bind="click: goToTenantList"><i class="fa fa-backward"> Return</i></button>
+    </div>
+</div>

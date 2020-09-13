@@ -1,0 +1,145 @@
+<div id="toolbar">
+    <!--<div><span style=" font-family: Boschsansmed; font-size: 21px; margin-left: 35px" data-bind=" text: rootViewModel.tenantName">Bosch</span></div>-->
+    <!-- Responsive Toolbar -->
+
+    <oj-toolbar>
+        <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>&nbsp;&nbsp;
+        <oj-button title="Alerts and Notification" on-oj-action='[[$parent.alertSelect]]'> <i slot="endIcon"
+                class="fa fa-bell-o fa-2x text-black"></i></oj-button>
+        <!--        <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>&nbsp;&nbsp;                                            -->
+        <!--
+                <oj-menu-button id="userMenu" display="[[$parent.mdScreen() ? 'icons' : 'icons']]" chroming="half">
+                    <span slot="endIcon" class="oj-component-icon oj-button-menu-dropdown-icon  fa fa-building-o fa-2x text-black"></span>
+                    <oj-menu id="tenants" slot="menu" style="display:none" aria-label="Order Edit"  on-oj-action='[[tenantSelect]]'>
+                         ko foreach: rootViewModel.tenantArr 
+                        <oj-option value=[[tenantId]]><span  data-bind="text:tenantName || ''"></span></oj-option>
+                         /ko 
+                    </oj-menu>
+                </oj-menu-button>-->
+
+
+
+
+        <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>&nbsp;
+
+        <oj-menu-button id="userMenu" title="Profile" display="[[$parent.mdScreen() ? 'icons' : 'icons']]"
+            chroming="half">
+            <span>
+                <oj-bind-text value="[[$parent.userLogin]]"></oj-bind-text>
+            </span>
+            <span slot="endIcon"
+                class="oj-component-icon oj-button-menu-dropdown-icon  fa fa-user-o fa-2x text-black"></span>
+            <oj-menu id="menu1" slot="menu" style="display:none" on-oj-action='[[$parent.menuItemSelect]]'>
+                <oj-option id="pref" value="pref" data-bind="click:eula">EULA</oj-option>
+                <oj-option id="about" value="about" data-bind="click:resetPasswordFunction">Reset Password</oj-option>
+                <oj-option id="userProfile" value="userProfile" data-bind="click:editUserProfileFunction">Edit User
+                    Profile</oj-option>
+                <oj-option id="tenantSelect" value="secondary" on-oj-action='[[tenantSelect]]'>
+                    Account
+                    <oj-menu>
+                        <!-- ko foreach: rootViewModel.tenantArr -->
+                        <oj-option value=[[tenantId]]><span data-bind="text:tenantName || ''"></span></oj-option>
+                        <!-- /ko -->
+                    </oj-menu>
+                </oj-option>
+                <oj-option id="out" value="out">Sign Out</oj-option>
+            </oj-menu>
+        </oj-menu-button>
+    </oj-toolbar>
+</div>
+
+
+<oj-dialog style="display:none;width:25%;height:400px;
+           min-height:450px;max-height:800px;" id="modalDialog1" cancel-behavior='none'>
+
+    <div slot="header" class="pull-left">
+        <span>Reset Password</span>
+        <oj-button style="margin-left:250px" id="okButton" class="pull-right" data-bind="click: function() {
+                  document.querySelector('#modalDialog1').close();
+                }"><i class="fa fa-times"></i>
+        </oj-button>
+    </div>
+    <div class="box-body table-responsive pad">
+        <br />
+        <div class="col-xs-12 pad">
+            <!--ko if: resetPass()-->
+            <div class="form-group has-feedback">
+                <input style="-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+                    class="form-control" placeholder="Current Password" type="password" data-bind='textInput:password'
+                    required>
+                <span class="focus-input100"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input style="-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+                    class="form-control" placeholder="New Password" type="password" data-bind='textInput:newPassword'
+                    required>
+                <span class="focus-input100"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input style="-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+                    class="form-control" placeholder="Confirm New Password" type="password"
+                    data-bind='textInput:confirmNewPassword' required>
+                <span class="focus-input100"></span>
+            </div>
+            <br />
+            <div class="form-group has-feedback">
+                <div class="col-xs-4 no-padding">
+                    <button data-bind='click:function() {resetPassword()}' class="btn btn-block btn-flat"
+                        style="color:white;background-color:green;cursor: point">Confirm</button>
+                </div>
+            </div>
+            <!--/ko-->
+            <!--ko if:loginError()-->
+            <div data-bind='text:message,css:alert' class='alert col-sm-12' style="margin-top:15px;"></div>
+            <!--/ko-->
+        </div>
+    </div>
+</oj-dialog>
+
+<oj-dialog style="display:none;width:35%;height:600px;
+           min-height:450px;max-height:800px;" id="modalDialog11" cancel-behavior='none'>
+
+    <div slot="header" class="pull-left">
+        <span>Edit User Profile</span>
+        <oj-button style="margin-left:450px" id="okButton" class="pull-right" data-bind="click: function() {
+                  document.querySelector('#modalDialog11').close();
+                }"><i class="fa fa-times"></i>
+        </oj-button>
+    </div>
+    <div class="box-body table-responsive pad">
+        <br />
+        <div class="col-xs-12 pad">
+            <!--ko if:userProfileMessage()-->
+            <div data-bind='text:message,css:alert' class='alert col-sm-12' style="margin-top:15px;"></div>
+            <!--/ko-->
+            <!--ko if: ready()-->
+            <div class="form-group">
+                <label for="userName" class="control-label">Email</label>
+                <input class="form-control disabled" id="userName" placeholder="abc@gmail.com" required="true" disabled
+                    type="text" data-bind="textInput:email">
+            </div>
+            <div class="form-group"> <label for="firstName" class="control-label">First Name</label>
+                <input class="form-control" id="firstName" required="true" type="text" data-bind="textInput:firstName">
+            </div>
+            <div class="form-group"> <label for="lastName" class="control-label">Last Name</label>
+                <input class="form-control " id="lastName" required="true" type="text" data-bind="textInput:lastName">
+            </div>
+            <div class="form-group"> <label for="phone" class="control-label">Phone</label>
+                <input class="form-control " id="phone" required="true" type="text" data-bind="textInput:phone">
+            </div>
+            <div class="form-group">
+                <oj-label class="oj-label" for="switch">User Enabled</oj-label>
+                <oj-switch id="switch" value="{{enabled}}"></oj-switch><br /><br />
+            </div>
+
+            <br />
+            <div class="form-group has-feedback">
+                <div class="col-xs-4 no-padding">
+                    <button class="btn btn-block btn-flat" style="color:white;background-color:green;cursor: point"
+                        data-bind="click: editUserProfile">Submit</button>
+                </div>
+            </div>
+            <!--/ko-->
+        </div>
+    </div>
+</oj-dialog>

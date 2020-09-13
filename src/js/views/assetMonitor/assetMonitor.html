@@ -1,0 +1,179 @@
+
+<div class='container-fluid'>
+    <div class='row pad'>
+        <div class=" col-md-12" style=" display: flex; justify-content:  space-between">
+            <div style=" display: flex; align-items:  center">
+                <div  data-bind="click: back" class="hoverClick">
+                    <input style="display: block; float: left; margin-right: 10px" type="image" src="css/images/back_btn.png" value="Back" alt="Submit">
+                    <span style=" font-family: Boschsansmed; font-size: 14px;">Back</span>  
+                </div>
+
+            </div>
+            <div class="pull-right pad">
+                <span  style=" font-family: Boschsansreg; font-size: 14px;  color: #525f6b" data-bind=" text: 'Last Refreshed: '+lastrefresh()"></span>
+                <span class="btn btn-default" data-bind='click:refreshDb'><i class="fa fa-refresh"></i></Span>
+                <span class="btn btn-default" data-bind='click:minimise , visible:maxChart()')><i class="fa fa-minus"></i></Span>
+                 <span class="btn btn-default" data-bind='click:maximise , visible:(maxChart() === false)'><i class="fa fa-plus"></i></Span>
+            </div>
+        </div>
+        <div id="liftResult" class='col-md-12'>
+            <!--        ko if:(ready())-->
+            <div class='box-body' data-bind="visible:maxChart">
+                <div class='row' data-bind='with:asset'>    
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <!-- Widget: user widget style 1 -->
+                        <div class="box box-widget widget-lift">
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class=" text-white no-padding hoverClick widget-lift-header"   data-bind="click: function(){$parent.loadDetail($data)},  css: { 'header-Active': isOnline,'header-Off':!isOnline }">
+                                <div style=" display: flex; justify-content: space-between">
+                                    <span class="widget-lift-username text-white" data-bind='text:assetName'></span>
+                                    <span class="widget-lift-username" style=" font-family: Boschsansbold; font-size: 16px; margin-right: 10px" data-bind='text:status'></span>
+                                </div>
+                            </div>
+
+                            <div class="box-footer no-padding no-border">
+                                <div class="row  ">
+                                    <div class="col-sm-4 border-right border-bottom">
+                                        <div class="description-block " >
+                                            <span class="widget-lift-liftmetric" data-bind="text: floors">1</span>
+                                            <span class="widget-lift-liftmetric-name">Floors</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4 border-right border-bottom">
+                                        <div class="description-block">
+                                            <span class="widget-lift-liftmetric" data-bind="text: doorCyc">2400</span>
+                                            <span class="widget-lift-liftmetric-name">Door Cycle</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4  border-bottom">
+                                        <div class="description-block">
+                                            <span class="widget-lift-liftmetric" data-bind="text: energy">5000</span>
+                                            <span class="widget-lift-liftmetric-name">Energy(kWh)</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                                <div class="row">
+                                    <div class="col-sm-4 border-right">
+                                        <div class="description-block">
+                                            <span class="widget-lift-liftmetric" data-bind="text: activeHrs||0">75%</span>
+                                            <span class="widget-lift-liftmetric-name">Hours</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4 border-right">
+                                        <div class="description-block">
+                                            <span class="widget-lift-liftmetric" data-bind="text: alerts">80%</span>
+                                            <span class="widget-lift-liftmetric-name">Alerts</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4">
+                                        <div class="description-block">
+                                            <span class="widget-lift-liftmetric" data-bind="text:maintDt">95%</span>
+                                            <span class="widget-lift-liftmetric-name">Serviced</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <div class="box-footer">Metrics since last maintenance: <span class="italic bold" data-bind="text:maintDt"></span></div>
+                        </div>
+                         
+                    </div> 
+
+                    <div class="col-md-8 col-sm-12 widget-lift">
+                        <div class="col-md-12 col-lg-12 widget-lift-details" style=" padding: 5px; background-color: #f4f3f3" >
+                            <div class="row" >
+                                <div class="col-md-4 col-sm-4"> Asset ID: </div>
+                                <div data-bind="text:assetName +' ('+assetId+')'"> Kasturba Skywalk 1 (123456)   </div>
+                            </div>
+                            <hr>
+                            <div class="row" >
+                                <div class="col-md-4 col-sm-4" data-bind="text:levelKeys+':'">   </div>
+                                <div data-bind="text:levelVals">   </div>
+                            </div>
+                            <hr>
+                            <div class="row" >
+                                <div class="col-md-4 col-sm-4"> Location:  </div>
+                                <div data-bind="text:location.locName">    </div>
+                            </div>
+                            <hr>
+                            <div class="row" >
+                                <div class="col-md-4 col-sm-4"> Account:  </div>
+                                <div data-bind="text:tenantName">  Skywalk Operator 1   </div>
+                            </div>
+                            <hr>
+                            <div class="row" >
+                                <div class="col-md-4 col-sm-4"> Last Message Recieved:  </div>
+                                <div data-bind="text:new Date(lastMsgts).toLocaleDateString()+' '+new Date(lastMsgts).toLocaleTimeString()">  03/June/2019 10:32:00 AM   </div>
+                            </div>
+                            <hr>
+                            <div class="row" >
+                                <div class="col-md-4 col-sm-4"> Asset Contact:  </div>
+                                <div data-bind="text:email|| 'Not Defined'">  Contact Person (Phone Number)   </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class='box box-default' style='min-height: 400px'>
+                        <div class='box-header no-padding bg-gray-light'> 
+                            <div id="tabbarcontainer" class="col-md-12">
+                                <oj-tab-bar 
+                                    drill-mode="none" 
+                                    display="all" 
+                                    edge="top" 
+                                    selection="{{module}}"
+                                    data="[[chartDataSource]]"
+                                    item.renderer="[[oj.KnockoutTemplateUtils.getRenderer('chart_tab_tmpl', true)]]" >
+                                </oj-tab-bar>
+                            </div>   
+                        </div>
+                        <div class='box-body'>
+                            <!--ko if:module-->
+                            <div id="applRoute" role="main"
+                                 data-bind="ojModule:{name: module,params: params}">
+                            </div>
+                            <!--/ko-->  
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--/ko-->
+            <!--        ko if:(!ready())-->
+            <div class="overlay">
+                <i class="fa fa-refresh fa-spin"></i>
+            </div>
+
+            <!--/ko-->
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<script type="text/html" id="chart_tab_tmpl">
+    <li data-bind="attr:{ id : $data['id']}, css:{'oj-disabled' : $data['disabled'] == 'true'}">
+        <a href="#" data-bind="text: $data['name']">
+        </a>
+    </li>
+</script>

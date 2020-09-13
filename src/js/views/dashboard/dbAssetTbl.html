@@ -1,0 +1,45 @@
+<div class="box box-primary no-border col-md-12 no-padding" style='border-radius: 10px;'>
+    <div class='box-header'>
+        <div id="enerVal" class='col-md-12'>
+            <span  class="text-primary" style=" font-family: Boschsansreg; font-size: 15px;">Elevator List</span>          
+        </div>
+    </div>
+
+    <!-- /.box-header 1-->
+    <div class="box-body no-padding">
+        <div style=" padding: 10px; border: 1px solid #cacbcd ">
+            <!--             background-color: #f3f3f3;-->
+            <div class="box-body no-padding alarmScroll" >
+                <!--                style="overflow-x:auto;"-->
+                <!--                 ko if:ready-->
+                <table id='example' class="table table-condensed table-striped table-bordered">
+                    <thead>
+                        <tr>                            
+                            <th class="sorting" style=" font-family: Boschsansbold; font-size: 14px;">Elevator</th>
+                            <th style=" font-family: Boschsansbold; font-size: 14px;">Owner</th>
+                            <th style=" font-family: Boschsansbold; font-size: 14px;">Location</th>
+                            <th style=" font-family: Boschsansbold; font-size: 14px; width:40px">Status</th>                            
+                        </tr>
+                        
+                    </thead>
+                    <tbody data-bind="foreach:assetArr">
+                        <tr>                            
+                            <td style=" font-family: Boschsanslight; font-size: 14px;" align="left" data-bind="text:assetName"></td>
+                            <td style=" font-family: Boschsanslight; font-size: 14px;" align="left" data-bind="text:tenantName"></td>
+                            <td style=" font-family: Boschsanslight; font-size: 14px;" align="left" data-bind="text:locName"></td>
+                            <td style=" font-family: Boschsanslight; font-size: 14px;" align="left" ><span  class= "badge label" data-bind="text:isOnline?'Online':'Offline',css:isOnline?'label-success':'label-danger'"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--/ko-->
+                <!--        ko if:!ready()-->
+                <div class="overlay col-md-12">
+                    <i class="fa fa-refresh fa-spin fa-5x"></i>
+                </div>
+                <!--/ko-->
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.box-body -->
+</div>

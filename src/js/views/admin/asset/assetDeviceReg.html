@@ -1,0 +1,68 @@
+<!--<div class="col-xs-12">
+    <div class="box">
+         /.box-header 
+        <div class="box-body">
+            <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div>
+
+               
+            </div>
+             /.box-body 
+        </div>
+        <div class="box-footer">
+            <div class="form-group"> 
+                <button type="button" class="btn btn-primary" data-bind="click:function(){register()}">Save</button>
+                <div class="divider"/>
+                <button type="button" class="btn btn-danger " data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+         /.box 
+         /.box 
+    </div>
+</div>-->
+<div class="col-xs-12">
+
+    <form>
+        <div class="form-group"> 
+            <label for="title" class="control-label">Asset Id</label>
+            <input class="form-control disabled" id="title" required="true" type="text" disabled=true data-bind="textInput:assetId" >
+        </div> 
+
+
+        <div class="form-group">                         
+            <oj-label for="devName" class="control-label">Device Type</oj-label>
+
+            <oj-select-one id="devName" options="[[deviceTypeOpts]]" 
+                           placeholder="Select Device"
+                           value="{{devType}}" style="max-width:20em">
+            </oj-select-one>
+        </div> 
+
+        <!-- <div class="form-group">
+            <oj-label for="devType" class="control-label">Device Name</oj-label>
+
+            <oj-select-one id="devType" options="[[deviceOpts]]" 
+                           placeholder="Select Device"
+                           value="{{devName}}" style="max-width:20em">
+            </oj-select-one>
+        </div> -->
+
+        <div class="form-group"> 
+            <label for="title" class="control-label">Device Name</label>
+            <input class="form-control disabled" id="title" required="true" type="text"  data-bind="textInput:devName" >
+        </div> 
+
+        <div class="form-group"> 
+            <label for="title" class="control-label">Device Id</label>
+            <input class="form-control disabled" id="title" required="true" type="text" data-bind="textInput:devId" >
+        </div> 
+    </form>
+
+    <div class="form-group"> 
+        <button type="button" class="btn btn-primary" data-bind="click:function(){register()}">Save</button>
+        <!-- <button type="button" class="btn btn-danger "  data-bind="click:function(){cancel()}">Cancel</button> -->
+    </div>
+
+    <div class="alert alert-success" data-bind="visible: regError()">
+        <h4><i class="icon fa fa-check"></i> <span data-bind="text:regErrorText"> User Successfully Registered!</span></h4>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+    "success": "true",
+    "routes": {
+        "devices": {
+            "label": "Devices",
+            "value": "acl/device/deviceRoute"
+        },
+        "tenant": {
+            "label": "Tenants",
+            "value": "acl/tenant/tenantRoute"
+        },
+        "userProfile": {
+            "label": "Users",
+            "value": "acl/user/userRoute",
+            "isDefault": true
+        },
+
+        "assets": {
+            "label": "Assets",
+            "value": "acl/asset/assetRoute"
+        }
+    }
+}

@@ -1,0 +1,43 @@
+<div class="box box-primary no-border col-md-12 no-padding" style='border-radius: 10px'>
+    <div class='box-header'>
+        <div id="enerVal" class='col-md-12'>
+            <span  class="text-primary" style=" font-family: Boschsansreg; font-size: 15px;">Recent Alerts/Notifications</span>          
+        </div>
+    </div>
+
+    <!-- /.box-header -->
+    <div class="box-body no-padding">
+        <div style=" padding: 15px; border: 1px solid #cacbcd ">
+            <!--             background-color: #f3f3f3;-->
+            <div class="box-body no-padding alarmScroll">
+                <!--                 ko if:ready-->
+                <table id='notifyTable' class="table table-striped table-condensed ">
+                    <thead>
+                        <tr>                            
+                            <th class="sorting" style=" font-family: Boschsansbold; font-size: 14px;">Elevator</th>
+                            <th style=" font-family: Boschsansbold; font-size: 14px;">Alert</th>
+                            <th style=" font-family: Boschsansbold; font-size: 14px;">Time</th>      
+                            <th style=" font-family: Boschsansbold; font-size: 14px;">Severity</th>                                                  
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:alertArr">
+                        <tr>                            
+                            <td style=" font-family: Boschsanslight; font-size: 14px;" align="left" data-bind="text:assetName"></td>
+                            <td style=" font-family: Boschsanslight; font-size: 14px;" align="left" data-bind="text:alertText"></td>
+                            <td style=" font-family: Boschsanslight; font-size: 14px;" align="left" data-bind="text:createdAt"></td>
+                            <td style=" font-family: Boschsanslight; font-size: 14px;" align="left" ><span  class= "badge label" data-bind="text:prio,css:((prio==='HIGH')?'label-danger':((prio==='LOW')?'label-success':'label-warning'))"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--/ko-->
+                <!--        ko if:!ready()-->
+                <div class="overlay col-md-12">
+                    <i class="fa fa-refresh fa-spin fa-5x"></i>
+                </div>
+                <!--/ko-->
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.box-body -->
+</div>

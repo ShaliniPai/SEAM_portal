@@ -1,0 +1,97 @@
+<div class='box-footer no-pad'>
+    <div class="row"> 
+        <div class="col-md-3 col-xs-6" >  
+            <div class="input-group input-group-sm" style="width: 100%;">
+                <div class="input-group">                           
+                    <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                        <i class="fa fa-calendar"></i>&nbsp;
+                        <span data-bind="text:dateText"></span> <b class="caret"></b>                                 
+                    </div>         
+                </div>                          
+            </div>                     
+        </div>
+        <div class="col-md-2 col-xs-6">
+            <button class='btn btn-block btn-primary' data-bind="click:loadData">Load</button>
+        </div>
+    </div>
+</div> 
+<hr>
+<div class='chart-box-body '>  
+    <!--ko if:chartReady-->
+    <div class="row">
+        <div class="col-sm-3 col-xs-6">
+            <div class="description-block border-right">
+                <h5 class="chart-data-header description-header" data-bind="text:resultTotalDays"></h5>
+                <span class="description-text">Total Days</span>
+            </div>
+            <!-- /.description-block -->
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+            <div class="description-block border-right">
+                <h5 class="chart-data-header description-header" data-bind="text:totalMainsEnergy() +' kWh'">0</h5>
+                <span class="description-text">Total Main Energy</span>
+            </div>
+            <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-3 col-xs-6">
+            <div class="description-block border-right">
+                <h5 class="chart-data-header description-header" data-bind="text:totalDGEnergy() +' kWh'">0</h5>
+                <span class="description-text">Total DG Energy</span>                                                  
+            </div>                        
+            <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-3 col-xs-6">
+            <div class="description-block border-right">
+                <h5 class="chart-data-header description-header" data-bind="text:avgEnergyPerDay() +' kWh'">0</h5>
+                <span class="description-text">Average Energy per Day</span>
+            </div>
+            <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!--/ko-->
+</div>
+<hr>
+
+<div class="container-fluid">
+
+    <!--ko if:chartReady-->
+    <oj-chart id="barChart"
+              type="bar" 
+              orientation="[[orientationValue]]"
+              series="[[energySeriesValue]]"
+              groups="[[energyGroupsValue]]"
+              value-formats.series.tooltip-display="[[tooltipDisplaySeries]]"
+              value-formats.series.tooltip-label="[[seriesOption]]"
+              value-formats.group.tooltip-display="[[tooltipDisplayGroup]]"
+              value-formats.group.tooltip-label="[[groupOption]]"
+              value-formats.value.tooltip-label="Energy(kWh)"
+              stack="[[stackValue]]"
+              stack-label="[[stackLabelValue]]"  
+              style-defaults.data-label-position="[[labelPosition]]"
+              style-defaults.bar-gap-ratio="0.4"
+              animation-on-display="auto"
+              animation-on-data-change="auto"
+              zoomAndScroll="live"
+              zoom-and-scroll="[[zoomAndScrollValue]]"
+              time-axis-type="[[timeAxisType]]"
+              y-axis="[[yAxis]]"                        
+              legend.rendered="on"
+              legend.position="top"
+              x-axis ="[[xAxisOptions,xAxis]]"                        
+              hover-behavior="dim"
+              style="width:100%;height:350px;float:right;">
+    </oj-chart>
+    <!--/ko-->   
+
+    <!-- ko if:!chartReady()-->
+    <div class="overlay col-md-12">
+        <i class="fa fa-refresh fa-spin fa-5x"></i>
+    </div>
+    <!--/ko-->
+
+</div>
+

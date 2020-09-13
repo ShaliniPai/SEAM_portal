@@ -1,0 +1,69 @@
+<div class="box box-primary">
+    <div class="box-header">
+        <h2>User Tenants</h2>
+    </div>
+    <div class="box-body">
+        <div class="form-horizontal" data-bind="with:user()">
+            <div class="form-group col-md-6">
+                <label for="inputName" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputName" disabled="true" data-bind="textInput:email">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputName" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputName" disabled="true" data-bind="textInput:firstName">
+                </div>
+            </div>                
+        </div>            
+    </div>
+    <br><br>
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Assigned Tenants</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="thead">#</th>
+                        <th class="thead">Tenant Id</th>
+                        <th class="thead">Tenant Name</th>
+                        <th class="thead">Role</th>
+                        <th class="thead">Default?</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:tenantIds">
+                    <tr>
+                        <td data-bind="text:$index()+1"></td>
+                        <td><div class="form-group"><input class="form-control"  type="text" data-bind="textInput:tenantId"></div></td>
+                        <td><div type="text" data-bind="text:tenantName || ''"></div></td>                            
+                        <td>
+                            <div class="form-group">
+                                <select class="form-control" id="role" name="role" data-bind="
+                                options: $parent.roles,
+                                optionsText: 'name',
+                                optionsValue: 'id',
+                                value: $data.sysRole">
+                                </select>
+                            </div> 
+                        </td>    
+                        <td><btn class="btn fa fa-check-circle" data-bind="click: function() {$parent.selectDefault($data)},css:(tenantId===$parent.defTenantId())?'btn-success':'btn-default'"></btn></td>
+                <td><btn class="btn btn-danger fa fa-trash" data-bind="click: function() {$parent.deleteRow($data,$index)}"></btn></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+
+    <div class="box-footer">
+        <button class="btn btn-primary " data-bind="click: save"><i class="fa fa-save"> Save</i></button>
+        <button class="btn btn-secondary" data-bind="click: goToUserList"><i class="fa"> Close</i></button>
+        <button class="btn btn-success" data-bind="click: addTenant"><i class="fa fa-plus"> Add Tenant</i></button>
+        <button class="btn btn-primary pull-right" data-bind="click: goToUserList"><i class="fa fa-backward"> Return</i></button>
+    </div>
+</div>

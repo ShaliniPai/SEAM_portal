@@ -1,0 +1,202 @@
+<div class="col-md-12">
+    <div class="box">
+        <div class="box-header">
+            <h2 class="bold text-primary">Add/Update Alerts</h2>
+            <div class="box-tools">
+                <div class=" col-md-3 form-group pad">
+                    <oj-switch id="switch" value="{{active}}"></oj-switch>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-body col-md-9" style="background-color: #fff">
+            <div class="box box-solid box-primary">
+                <div class="box-header">
+                    <div class="box-title">Type Definition</div>
+                </div>
+                <div class="box-body">
+
+                    <div class="col-md-6 form-group">
+                        <oj-label for="alertName">Alert Name</oj-label>
+                        <input id="alertName" class="form-control input-sm" required="true" type="text" placeholder=""
+                            data-bind="textInput: alertName">
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <oj-label for="description">Description</oj-label>
+                        <input id="description" class="form-control input-sm" required="true" type="text" placeholder=""
+                            data-bind="textInput: description">
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <oj-label for="rules" class="control-label">Rule Type</oj-label>
+                        <select class="form-control" style="height: 40px;" id="rules" name="rules" data-bind="
+                        options: rules,
+                        optionsText: 'name',
+                        optionsValue: 'id',                   
+                        value: ruleName ">
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <oj-label for="priority" class="control-label">Priority</oj-label>
+                        <select class="form-control" style="height: 40px;" id="priority" name="priority" data-bind="
+                        options: priorities,
+                        optionsText: 'name',
+                        optionsValue: 'id',
+                        value: priority">
+                        </select>
+                    </div>
+                    <!-- <div class="col-md-4 form-group">                 
+                        <oj-label for="frequency" >Execution Frequency (in Minutes)</oj-label>                                                 
+                        <div class="form-group" style="width: 400px;">
+                            <oj-input-number id="frequency"  placeholder="Minutes"   required
+                                             autocomplete="off" value="{{frequency}}"  >     
+                            </oj-input-number>  
+                        </div>
+                    </div>  -->
+                    <div class="col-md-4 form-group">
+                        <oj-label for="executionFrequency" class="control-label">Execution Frequency (in Minutes)</oj-label>
+                        <select id="executionFrequency" class="form-control" style="width: 85%;" id="executionFrequency" name="executionFrequency"
+                            data-bind="
+                        options: executionFrequency,
+                        optionsText: 'name',
+                        optionsValue: 'id',                   
+                        value: executionFrequencyTime">
+                        </select>
+                    </div>
+
+                    <!-- <div class=" col-md-4 form-group"> 
+                        <oj-label for="suppressAfter" class="control-label">Suppress after how many alerts</oj-label>
+                        <oj-input-number id="suppressAfter"  placeholder="Number" type="number" min="1" max="99999999"  required
+                                         autocomplete="off" value="{{suppressAfter}}"  >     
+                        </oj-input-number>  
+                    </div>  -->
+
+                    <div class="col-md-4 form-group">
+                        <oj-label for="suppressAfter" class="control-label">Suppress after how many alerts</oj-label>
+                        <select class="form-control" style="width: 85%;" id="suppressAfter" name="suppressAfter"
+                            data-bind="
+                        options: suppressAfterArray,
+                        optionsText: 'name',
+                        optionsValue: 'id',                   
+                        value: suppressAfter">
+                        </select>
+                    </div>
+
+                    <div class=" col-md-4 form-group">
+                        <oj-label for="dateTime" class="control-label">Next Execution</oj-label>
+                        <oj-input-date-time id="dateTime" value='{{nextExecution}}'></oj-input-date-time>
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+
+            <div class="box box-solid box-primary">
+                <div class="box-header">
+                    <div class="box-title">Notification Parameters</div>
+                </div>
+                <div class="box-body">
+                    <table id="notificationParams" class="table table-bordered table-striped dataTable table-condensed">
+                        <tbody class="inflight-data-font" data-bind="foreach: notificationParams">
+                            <tr>
+                                <td style="text-align:center;" data-bind="text:Label"></td>
+                                <td style="text-align:center;">
+                                    <oj-input-number id="offlineMinutes" placeholder="Number" type="number" min="1" max="99999999"
+                                        required autocomplete="off" value={{ParamValue}}>
+                                    </oj-input-number>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="box box-solid box-primary">
+                <div class="box-header">
+                    <div class="box-title">Notification Medium</div>
+                </div>
+                <div class="box-body">
+
+                    <div class="oj-flex-bar-middle pad">
+                        <oj-checkboxset value='{{notifyCB}}' class='oj-choice-direction-row'>
+                            <oj-bind-for-each data="[[notifyOpts]]">
+                                <template>
+                                    <oj-option :id="[[$current.data.id]]" value="[[$current.data.value]]">
+                                        <oj-bind-text value="[[$current.data.option]]"></oj-bind-text>
+                                    </oj-option>
+                                </template>
+                            </oj-bind-for-each>
+                        </oj-checkboxset>
+                    </div>
+
+                    <div id="Email">
+                        <!--ko if:ready()-->
+                        <div class="col-md-12 form-group">
+                            <oj-label for="to">Email To</oj-label>
+
+                            <oj-combobox-many id="to" value="{{to}}" style="max-width:100em">
+                                <!-- ko foreach: users -->
+                                <oj-option value="[[value]]">
+                                    <span>
+                                        <oj-bind-text value="[[label]]"></oj-bind-text>
+                                    </span>
+                                </oj-option>
+                                <!-- /ko -->
+                            </oj-combobox-many>
+
+                        </div>
+                       
+                        <div class="col-md-12 form-group">
+                            <oj-label for="cc">Email Cc</oj-label>
+                            <oj-combobox-many id="cc" value="{{cc}}" style="max-width:100em">
+                                <!-- ko foreach: users -->
+                                <oj-option value="[[value]]">
+                                    <span>
+                                        <oj-bind-text value="[[label]]"></oj-bind-text>
+                                    </span>
+                                </oj-option>
+                                <!-- /ko -->
+                            </oj-combobox-many>
+                        </div>
+                         <!-- /ko -->
+                    </div>
+
+                    <div id="sms">
+                         <!--ko if:ready()-->
+                        <div class="col-md-12 form-group">
+                            <oj-label for="cc">SMS Recepients</oj-label>
+                            <oj-combobox-many id="cc" value="{{smsList}}" style="max-width:100em">
+                                <!-- ko foreach: users -->
+                                <oj-option value="[[value]]">
+                                    <span>
+                                        <oj-bind-text value="[[label]]"></oj-bind-text>
+                                    </span>
+                                </oj-option>
+                                <!-- /ko -->
+                            </oj-combobox-many>
+                        </div>
+                         <!-- /ko -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-body col-md-3" style="background-color: #fff">
+            <div id='assetTreeComp' class="col-md-12" data-bind="ojModule: 'assetMonitor/assetTree'"></div>
+        </div>
+
+        <div class="box-footer col-md-9">
+            <div class="form-group">
+                <input class="btn btn-primary" data-bind="click:submit" value="Save">
+                <input class="btn btn-danger" data-bind="click:reset" value="Cancel">
+            </div>
+        </div>
+    </div>
+</div>

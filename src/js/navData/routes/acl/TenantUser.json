@@ -1,0 +1,22 @@
+{
+    "success": "true",
+    "routes": {
+        "locations": {
+            "label": "Locations",
+            "value": "acl/location/locationRoute"
+        },
+         "AlertAndNotification": {
+            "label": "Alerts & Notifications",
+            "value": "admin/AlertAndNotification/alertRoute"
+        },
+        "assets": {
+            "label": "Assets",
+            "value": "acl/asset/assetRoute"
+        },
+        "userProfile": {
+            "label": "Users",
+            "value": "acl/user/userRoute",
+            "isDefault": true
+        }
+    }
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "script": "server.js",
+    "name": "upPortal70",
+    "exec_mode": "fork",
+    "watch": false
+  }
+]

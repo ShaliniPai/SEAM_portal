@@ -1,0 +1,39 @@
+<!--
+
+
+<div class="col-md-12 no-padding">
+    <div class='box-header with-border no-padding' style="color: #005691">
+        <div id="enerVal" class='col-md-12'>
+            <span  style="font-size: 18px;">Elevator Installation Map</span>          
+        </div>
+    </div>
+    <div class='box-body'>
+        <div class="text-center" >
+            <div id="mapid"></div>
+        </div>
+    </div>
+</div>-->
+
+<div class="box box-primary no-border col-md-12 no-padding" style='min-height:305px;border-radius: 10px'>
+    <div class='box-header'>
+        <div id="enerVal" class='col-md-12'>
+            <span  class="text-primary" style=" font-family: Boschsansreg; font-size: 15px;">Elevator Location Map</span>          
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body no-padding">
+        <!--    ko if:message()-->
+        <div class="alert alert-warning">
+            <h4 data-bind="text:message"><i class="icon fa fa-check"></i></h4>
+        </div>
+        <!--/ko-->
+        <!--                 ko if:ready-->
+        <div class="chart-responsive">
+            <div id="mapid" style="height: 263px;"></div>
+        </div>
+        <!--        /ko-->
+        <!-- ./chart-responsive -->
+        <!-- /.col -->
+    </div>
+    <!-- /.box-body -->
+</div>

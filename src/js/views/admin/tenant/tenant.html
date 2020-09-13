@@ -1,0 +1,184 @@
+<div class="col-xs-12 pad">
+    <h2 class="bold text-primary">Add/Update Tenant</h2>
+
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#main" data-toggle="tab" aria-expanded="false" class="bold text-primary">General Info</a></li>
+            <li class=""><a href="#types" data-toggle="tab" aria-expanded="false" class="bold text-primary">Asset Types</a></li>
+        </ul>
+        <hr>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="main">
+                <form role="form"> 
+                    <div class="form-group col-md-6"> 
+                        <label for="userName" class="control-label">Tenant Id</label>
+                        <input class="form-control disabled" id="userName" required="true" type="text" data-bind="textInput:tenantId,attr: { disabled: true }" >
+                    </div> 
+
+                    <div class="form-group col-md-6"> 
+                        <label for="tenantName" class="control-label">Tenant Name</label> 
+                        <input class="form-control" id="tenantName" required="true" type="text" data-bind="textInput:tenantName">
+                    </div> 
+
+                    <div class="form-group col-md-6"> 
+                        <label for="role" class="control-label">Plan</label>
+                        <select class="form-control" id="role" name="role" data-bind="
+                        options: plans,
+                        optionsText: 'name',
+                        optionsValue: 'id',
+                        value: plan">
+                        </select>
+                    </div> 
+
+                    <div class="form-group col-md-6"> 
+                        <label for="role" class="control-label">Type</label>
+                        <select class="form-control" id="role" name="role" data-bind="
+                        options: typeOpts,
+                        optionsText: 'name',
+                        optionsValue: 'id',
+                        value: tenantType">
+                        </select>
+                    </div> 
+
+                    <div class="form-group col-md-6"> 
+                        <label for="email" class="control-label">Owner Email</label> 
+                        <input class="form-control" id="email" required="true" placeholder="abc@gmail.com" type="text" data-bind="textInput:email">
+                    </div> 
+
+                    <div class="form-group col-md-6">
+                        <oj-label class="oj-label" for="switch">Tenant Enabled</oj-label>
+                        <oj-switch id="switch" value="{{enabled}}"></oj-switch><br/><br/>
+                    </div> 
+                </form>
+
+                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-tenantReg" data-bind="click:openTenantReg,attr: { disabled: !updateMode() }">Register Admin</button>
+            </div>
+
+            <div class="tab-pane" id="types">
+                <div class="col-sm-12">
+                    <table id="assetTypes" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="assetTypes">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Sno.</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Asset Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--ko foreach:assetTypes-->
+                            <tr role="row" class="odd">
+                                <td class="bold" data-bind="text:$index()+1"></td>
+                                <td class="sorting_1">
+                                    <select class="form-control" id="role" name="role" data-bind="
+                                            options: $parent.assetTypeOpts,
+                                            optionsText: 'name',
+                                            optionsValue: 'id',
+                                            value: assetType">
+                                    </select>
+
+                                    <br>
+                                    <h5 class="bold text-primary">Attachable Devices</h5>
+                                    <div>
+                                        <table id="computedTable" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="computedValues">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting_asc" tabindex="0" rowspan="1" colspan="1" aria-sort="ascending">Device Type</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!--ko if:$parent.devTypesReady()-->
+                                                <!--ko foreach:devTypes-->
+                                                <tr role="row" class="odd">
+                                                    <td>  <select class="form-control" id="currency" name="devType" data-bind="
+                                                        options: $parents[1].devTypeOpts,
+                                                        optionsText: 'name',
+                                                        optionsValue: 'id',
+                                                        value: devType">
+                                                        </select>
+                                                    </td>
+                                                    <td><button class="fa fa-trash fa-2x" data-bind="click:function(){$parents[1].deleteDevice($parent,$index)}"> </button></td>
+                                                </tr>
+                                                <!--/ko-->
+                                                <!--/ko-->
+                                            </tbody>
+                                        </table>
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-success" data-bind="click:function(){$parent.addDevice($data)}"><i class="fa fa-plus fa-2x"></i></button>
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td><button class="fa fa-trash fa-2x" data-bind="click:function(){$parent.deleteAssetType($data,$index)}"> </button></td>
+                            </tr>
+                            <!--/ko-->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pull-right">
+                    <button type="button" class="btn btn-success" data-bind="click:addAssetType">Add Asset Type</button>
+                </div>
+            </div>
+
+
+            <div class="form-group"> 
+                <input class="btn btn-primary" data-bind="click: saveTenant" value="Save" >
+                <input class="btn btn-danger" data-bind="click: cancel" value="Close"> 
+                <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default" data-bind="click:openTags,attr: { disabled: !updateMode() }">Tags</button>               -->
+            </div> 
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+<div class="modal fade" id="modal-default" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Tags</h4>
+            </div>
+            <div class="modal-body">
+                <!--ko if:readyTags-->
+                <div data-bind="ojModule: {name: 'tags',params:tagsArray ,cacheKey: 'tags'}"></div> 
+                <!--/ko-->
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+
+<div class="modal fade" id="modal-tenantReg" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" data-bind="click:closeTenantReg" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Tenant Admin Registration</h4>
+            </div>
+            <div class="modal-body">
+                <!--ko if:readyTenantAdmin-->
+                <div data-bind="ojModule: {name :'admin/tenant/tenantAdmin',params:tenantId ,cacheKey: 'tenantAdmin'}"></div> 
+                <!--/ko-->
+            </div>
+            <div class="modal-footer">
+                <!--                <input class="btn btn-danger pull-left" data-dismiss="modal" data-bind="click:closeTenantReg" value="Cancel"> -->
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

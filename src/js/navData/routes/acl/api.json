@@ -1,0 +1,122 @@
+[
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.182",
+	  "value": "/",
+	  "method": "get",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.325",
+	  "value": "/device/getactivedevices",
+	  "method": "get",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.7708",
+	  "value": "/device/getdevicecertificate/:deviceTenant/:deviceName",
+	  "method": "get",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.5305",
+	  "value": "/device/search",
+	  "method": "post",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.14",
+	  "value": "/device",
+	  "method": "post",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.669",
+	  "value": "/device/deactivate",
+	  "method": "post",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.3313",
+	  "value": "/device/activate",
+	  "method": "post",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.7495",
+	  "value": "/device/updatedeviceShadow",
+	  "method": "post",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.9446",
+	  "value": "/device/ota/getImage",
+	  "method": "post",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.3442",
+	  "value": "/device/ota/uploadImage",
+	  "method": "post",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.28",
+	  "value": "/device/ota/getjob",
+	  "method": "post",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.599",
+	  "value": "/device/ota/createJob",
+	  "method": "post",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.537",
+	  "value": "/updateEvent",
+	  "method": "post",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.809",
+	  "value": "/device/assigndevice",
+	  "method": "put",
+	  "module": "device"
+	},
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights",
+	  "id": "DEV-1537354850322.2087",
+	  "value": "/device/:deviceName",
+	  "method": "put",
+	  "module": "device"
+	}
+  ]

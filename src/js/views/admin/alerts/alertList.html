@@ -1,0 +1,122 @@
+<div class="box-body col-md-12">
+    <div class="box-header">
+        <h1 class="text-primary">Defined Notifications <i class="fa fa-bell-o text-green"></i></h1>
+        <div class="pull-right box-tools" align="right">  
+            <button id="addRow" title="Add Alert" class="btn btn-primary" href="#!/location/add" data-bind="click: $parent.addRow"><span
+                    class="glyphicon glyphicon-plus"></span> Add Notification</button>
+            <button id="refresh" title="Refresh" class="btn btn-info"data-bind='click:refreshDb'> <i class="fa fa-refresh"></i></button>
+        </div>
+    </div>
+    <div class="box-body col-md-12">
+        <!--ko if:ready-->
+        <table class="table table-striped bg-white col-md-12" style="width: 100%">
+            <thead class="bg-primary text-white align">
+                <tr>
+                    <th style="font-size: 14px;">Alert Name</th>
+                    <th style="font-size: 14px;">Assets</th>
+                    <th style="font-size: 14px;">Rule Name</th>
+                    <th style="font-size: 14px;">Frequency (Mins)</th>
+                    <th style="font-size: 14px;">Suppress After</th>
+                    <th style="font-size: 14px;">Next Execution</th>
+                    <th style="font-size: 14px;">Priority</th>
+                    <th style="font-size: 14px;"></th>
+                    <th style="font-size: 14px;"></th>
+
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: alertList" style="background-color: #fff">
+                <tr>
+                    <td style="font-size: 14px;vertical-align: middle" data-bind="text: alertName"></td>
+                    <td id="assetVal"><span class="spnDetails" style="font-size: 14px;vertical-align: middle;"
+                            data-bind="text:assets.length"></span><span class="spnTooltip">
+                            <p class="text-capitalize" data-bind="text:assets"></p>
+                        </span></td>
+                    <td class="text-capitalize" style="font-size: 14px;vertical-align: middle" data-bind="text: ruleName"></td>
+                    <td style="font-size: 14px;vertical-align: middle" data-bind="text: frequency"></td>
+                    <td style="font-size: 14px;vertical-align: middle" data-bind="text: suppressAfter"></td>
+                    <td style="font-size: 14px;vertical-align: middle" data-bind="text: new Date(nextExecution).toLocaleString()"></td>
+                    <td class="text-capitalize" style="font-size: 14px; padding-right: 10px;vertical-align: middle">
+                        <span class="label label-large" data-bind="text:priority ,css:(priority==='high'?'label-danger':(active==='medium'?'label-success':'label-info'))"></span></td>
+
+                    <td>
+                        <!--ko if:(active)-->
+                        <button id="btnLoad" title="Disable" class='btn btn-warning hoverClick' data-bind="click:function(){$parent.mute($data,true)}"><i
+                                class="fa fa-bell-slash"> Disable</i></button>
+                        <!--/ko-->
+                        <!--ko if:(!active)-->
+                        <button id="btnLoad" title="Enable" class='btn btn-success hoverClick' data-bind="click:function() {$parent.mute($data,false)}"><i
+                                class="fa fa-bell"> Enable</i></button>
+                        <!--/ko-->
+                    </td>
+
+                    <td>
+                        <div class="btn-group no-padding">
+                            <button id="btnLoad" title="View Alert Triggered" class='btn btn-primary hoverClick' data-bind="click:$parent.edit"><i
+                                    class="fa fa-eye"></i></button>
+                        </div>
+
+                        <div class="btn-group no-padding">
+                            <button title="Edit" type="button" class="btn btn-primary hoverClick" data-bind="click:$parent.updateRow"><i
+                                    class="glyphicon glyphicon-pencil"></i></button>
+                        </div>
+                        <div class="btn-group no-padding">
+                            <button title="Delete" type="button" class="btn btn-danger hoverClick " data-bind="click:$parent.deleteRow"><i
+                                    class="glyphicon glyphicon-trash"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--/ko-->
+
+        <!--        ko if:!ready()-->
+        <div class="overlay col-md-12">
+            <i class="fa fa-refresh fa-spin fa-5x"></i>
+        </div>
+        <!--/ko-->
+    </div>
+</div>
+
+<oj-dialog style="display:none;width:50%;height:500px;
+           min-height:450px;max-height:800px;" id="modalDialog6"
+    cancel-behavior='none'>
+
+    <div slot="header" class="pull-left">
+        <oj-button id="okButton" class="pull-left" data-bind="click: function() {
+                  document.querySelector('#modalDialog6').close();
+                }"><i
+                class="fa fa-times"></i>
+        </oj-button>
+
+    </div>
+    <div class="box-body table-responsive pad">
+        <div class="col-xs-12 pad">
+
+            <div id="liftResult" class='col-md-12 col-xs-12'>
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                       <center><h3 class="box-title text-primary">Alerts Triggered by Asset</h3></center> 
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-bordered table-striped dataTable table-condensed">
+                <thead>
+                    <tr class="bg-aqua-active">
+                        <td style="text-align:center;">Asset ID</td>
+                        <td style="text-align:center;">Alert Count</td>
+                    </tr>
+                </thead>
+                <tbody class="inflight-data-font" data-bind="foreach: assetArray">
+
+                    <tr>
+                        <td style="text-align:center;" data-bind="text:key"></td>
+                        <td style="text-align:center;" data-bind="text:JSON.stringify(value)"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</oj-dialog>

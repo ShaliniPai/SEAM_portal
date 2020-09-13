@@ -1,0 +1,40 @@
+<div class="box box-primary no-border col-md-12 no-padding" style='max-height:250px;border-radius: 10px'>
+    <div class='box-header'>
+        <div id="enerVal" class='col-md-12'>
+            <span  class="text-primary" style=" font-family: Boschsansreg; font-size: 18px; margin-bottom: 15px">Avg Per Day</span>          
+        </div>
+    </div>
+    <!--    ko if:ready-->
+    <div data-bind='with:dbMetric'>
+        <div class="no-padding bg-gray-light">
+            <div class="pad box-pane-right ">
+                <div class="description-block border-bottom">                    
+                    <span style=" font-family: Boschsansreg; font-size: 14px;" data-bind='text:floors ||0'></span><br>
+                    <span class="dbTitle">Floors</span>
+                </div>
+                <!-- /.description-block -->
+                <div class="description-block border-bottom  border-top-black">                      
+                    <span style=" font-family: Boschsansreg; font-size: 14px;" data-bind='text:energy ||0'>60000</span><br>
+                    <span class="dbTitle">Energy</span>
+                </div>
+                <!-- /.description-block -->
+                <div class="description-block  border-top-black">                      
+                    <span style=" font-family: Boschsansreg; font-size: 14px;" data-bind='text:activeHrs||0'>60000</span><br>
+                    <span class="dbTitle">Active Hours</span>
+                </div>
+                <!-- /.description-block -->
+                <div class="description-block pad-top-10  border-top-black">                      
+                    <span style=" font-family: Boschsansreg; font-size: 14px;" data-bind='text:activeHrs||0'>60000</span><br>
+                    <span class="dbTitle">Active Hours</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+        </div>
+    </div>
+    <!--/ko-->
+    <!--        ko if:!ready()-->
+    <div class="overlay col-md-12" style="background-color: #005691; color: white">
+        <i class="fa fa-refresh fa-spin fa-5x"></i>
+    </div>
+    <!--/ko-->
+</div>

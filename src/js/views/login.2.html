@@ -1,0 +1,128 @@
+
+	<div class="limiter">
+		<div class="container-login100">
+			<!-- <div class="login100-more" ></div> -->
+            <div class="login100-more" style="background-image: url('../../css/images/elevator-login_page_concept.png');"></div>
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+				<form class="login100-form validate-form">
+                        <div id="loginbox" style="margin-top:230px;align-content: center;width: 500px;margin-left: -1%;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                                <div class="panel ">
+                    
+                                    <div class="login-logo" style="margin-bottom:0px">
+                                        <div style="align-content: center;align-content: center;"><b style="font-size:40px;color:#d40f0f;font-weight: bold;">Bosch
+                                            </b><span class="font-light italic" style="font-family: gabriola; font-size: 58px;color: darkslategray">up</span></div>
+                                            <!-- <img src="../../css/images/Bosch_UP_Logo_White.JPG"> -->
+                                    </div>
+                                    <span class="welcometext">
+                                        Welcome to Bosch IoT Enabled Elevator Monitoring
+                                    </span>
+                                    <!-- /.login-logo -->
+                                    <div style="padding-top:30px" style="font-family: Boschsansbold">
+                                        <div class="col-md-12">
+                                            <div class="">
+                                                <div class="">
+                                                    <!--ko if: !resetPass() && !forgotPass()-->
+                                                    <div class="form-group input-group">
+                                                        <input class="input100" name="username" placeholder="Email / UserID" type="email"
+                                                            data-bind="textInput: username">
+                                                        <span class="focus-input100"></span>
+                                                        <span class="symbol-input100">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                    
+                                                    <div class="form-group input-group">
+                                                        <input class="input100" type="password" name="pass" placeholder="Password"
+                                                            data-bind="textInput: password">
+                                                        <span class="focus-input100"></span>
+                                                        <span class="symbol-input100">
+                                                            <i class="fa fa-lock"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="form-group has-feedback">
+                                                            <div class="col-xs-12 no-padding">
+                                                                <button id="login" data-bind='click:login' class="btn  btn-block btn-flat"
+                                                                    style="color:white;background-color: #005e9b;cursor: point"><span>Sign In</span></button>
+                                                            </div>
+                                                            <!-- /.col -->
+                                                        </div>
+                                                        <br/>
+                                                   
+                    
+                                                    <div class="form-group has-feedback" style="margin-left:130px">
+                                                        <div class="col-xs-10 no-padding" style="color:black;margin-top: 12px;font-size: initial;margin-left: 20px">
+                                                            <a id="forgotPasswordLink" href="#" style="color: black;" data-bind="click: forgotPassword">I
+                                                                forgot my password</a>
+                                                        </div>
+                                                    </div>                                   
+                                                    <br />
+                                                    <!--/ko-->
+                    
+                                                    <!--ko if: resetPass()-->
+                                                    <h3 style="color:darkgreen">Congratulations Successful Login!</h3>
+                                                    <p style="color:midnightblue">Please change your password before proceeding</p>
+                                                    <div class="form-group has-feedback">
+                                                        <input style="-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+                                                            class="form-control" placeholder="Current Password" type="password" data-bind='textInput:password'>
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                    <div class="form-group has-feedback">
+                                                        <input style="-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+                                                            class="form-control" placeholder="New Password" type="password" data-bind='textInput:newPassword'>
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                    <div class="form-group has-feedback">
+                                                        <input style="-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+                                                            class="form-control" placeholder="Confirm New Password" type="password"
+                                                            data-bind='textInput:confirmNewPassword'>
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                    <div class="form-group has-feedback">
+                                                        <div class="col-xs-4 no-padding">
+                                                            <button data-bind='click:function() {resetPassword()}' class="btn btn-block btn-flat"
+                                                                style="color:white;background-color: #005e9b;cursor: point">Confirm</button>
+                                                        </div>
+                                                        <div class="col-xs-4 no-padding pull-right">
+                                                            <button data-bind='click:function() {backToLogin()}' class="btn btn-block btn-flat"
+                                                                style="color:white;background-color: #005e9b;cursor: point">Back</button>
+                                                        </div>
+                                                    </div>
+                                                    <!--/ko-->
+                    
+                                                    <!--ko if: forgotPass()-->
+                                                    <h3 style="color: maroon">Forgot Password!</h3>
+                                                    <p style="color: midnightblue">Please enter your user name to reset the password</p>
+                                                    <div class="form-group has-feedback">
+                                                        <input style="-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+                                                            class="form-control" placeholder="User Name" type="username" data-bind='textInput:username'>
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                    
+                                                    <div class="form-group has-feedback">
+                                                        <div class="col-xs-4 no-padding">
+                                                            <button data-bind='click:function() {resetForgotPassword()}' class="btn btn-block btn-flat"
+                                                                style="color:white;background-color: #005e9b;cursor: point">Reset Password</button>
+                                                        </div>
+                    
+                                                        <div class="col-xs-4 no-padding pull-right">
+                                                            <button data-bind='click:function() {backToLogin()}' class="btn btn-block btn-flat"
+                                                                style="color:white;background-color: #005e9b;cursor: point">Back</button>
+                                                        </div>
+                                                    </div>
+                                                    <!--/ko-->
+                    
+                                                    <!--ko if:loginError()-->
+                                                    <div data-bind='text:message,css:alert' class='alert col-sm-12' style="margin-top:20px;"></div>
+                                                    <!--/ko-->
+                    
+                                                    <!-- /.col -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+				</form>
+			</div>
+		</div>
+	</div>

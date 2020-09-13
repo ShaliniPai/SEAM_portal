@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Bosch Up</title>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1">
+    <link rel="icon" href="css/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="js/libs/bootstrap/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="js/libs/admin-lte/css/AdminLTE.css">
+    <link rel="stylesheet" href="js/libs/admin-lte/css/skins/_all-skins.css">
+
+    <!-- This is the main css file for the default Alta theme -->
+
+    <link rel="stylesheet" href="css/alta/7.0.0/web/alta.min.css" type="text/css" />
+
+    <!-- This contains icon fonts used by the starter template -->
+    <link rel="stylesheet" href="css/demo-alta-site-min.css" type="text/css" />
+
+    <link href="js/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="js/libs/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="js/libs/leaflet/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="js/libs/leaflet.markercluster/MarkerCluster.Default.css" />
+    <link rel="stylesheet" type="text/css" href="js/libs/leaflet.markercluster/MarkerCluster.css" />
+    <link rel="stylesheet" type="text/css" href="js/libs/leaflet.fullscreen/Control.FullScreen.css" />
+    <link rel="stylesheet" type="text/css" href="js/libs/datatables.net-dt/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="js/libs/jstree/themes/default/style.min.css" />
+
+    <!-- This is where you would add any app specific styling -->
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+</head>
+
+<body class="oj-web-applayout-body bgclr" style="height:100%;   ">
+    <div id="page-container">
+        <img style="height:15px;width:100%;margin-top: 0" src="css/images/top_strip_1920.jpg" alt="" />
+        <!-- Template for rendering navigation items shared between nav bar and nav list -->
+        <script type="text/html" id="navTemplate">
+                <li><a href="#">
+                        <span :class="[[$data['iconClass']]]"></span>
+                        <oj-bind-text value="[[$data['name']]]"></oj-bind-text>
+                    </a>
+                </li>
+            </script>
+        <div id="content-wrap">
+            <div id="globalBody" class="oj-offcanvas-outer-wrapper oj-offcanvas-page">
+                <div id="pageContent" class="oj-web-applayout-page">
+                    <!--                 ko if: isLoggedIn()-->
+                    <header role="banner" class="layout-header" style="background: #fff">
+                        <div class="oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center">
+                            <div class="oj-flex-bar-middle oj-sm-align-items-baseline">
+                                <img src="css/images/bosch-up.svg" alt="Bosch Up" style="margin-left: 10px">
+                            </div>
+
+                            <div class="oj-flex-bar-end oj-sm-align-items-baseline">
+                                <span style=" font-family: Boschsansmed; font-size: 24px; margin-right: 20px" data-bind="text: tenantName"></span>
+                            </div>
+
+                        </div>
+                        <hr>
+                        <div class="container-fluid">
+                            <!--ko if:navDataReady()-->
+                            <div role="navigation" class="oj-web-applayout-max-width oj-web-applayout-navbar">
+                                <div class="pull-left col-md-8">
+                                    <oj-navigation-list class="oj-sm-only-hide oj-md-condense" data="[[navDataSource]]"
+                                        edge="top" item.renderer="[[oj.KnockoutTemplateUtils.getRenderer('navTemplate', true)]]"
+                                        selection="{{router.stateId}}">
+                                    </oj-navigation-list>
+                                </div>
+                                <div class="pull-right">
+                                    <div data-bind="ojModule:{name: 'toolbar'}"> </div>
+                                </div>
+                            </div>
+                            <!--/ko-->
+                        </div>
+                        <hr class="no-pad no-margin">
+                    </header>
+                    <!--/ko-->
+
+                    <div style="height: 100%">
+                        <!--ko if:message()-->
+                        <!-- <div class="alert alert-warning">
+                                <h4 data-bind="text:message"><i class="icon fa fa-check"></i></h4>
+                            </div> -->
+                        <div role="main" class="oj-web-applayout-max-width" data-bind="ojModule: router.moduleConfig"></div>
+                        <!--/ko-->
+                        <!--                 ko if: isLoggedIn()-->
+                        <div role="main" class="oj-web-applayout-max-width-loggedIn oj-web-applayout-content" data-bind="ojModule: router.moduleConfig"></div>
+                        <!--/ko-->
+                    </div>
+                </div>
+                <!--                 ko if: isLoggedIn()-->
+                
+         
+                
+                <footer class="oj-web-applayout-footer footer" role="contentinfo">
+                    <div class="oj-web-applayout-footer-item oj-web-applayout-max-width footer-contents">
+                        <ul>
+                            <oj-bind-for-each data="[[footerLinks]]">
+                                <template>
+                                    <li><a :id="[[$current.data.linkId]]" :href="[[$current.data.linkTarget]]">
+                                            <oj-bind-text value="[[$current.data.name]]"></oj-bind-text>
+                                        </a></li>
+                                </template>
+                            </oj-bind-for-each>
+                            <a href="RBEI_PJ-IOT-IMPL2_Seam_Up_V1.0_Master_OSS_Attribution_Document_Draft_2019_06_14.pdf"
+                                target="_blank" onclick="openPdf(event, 'RBEI_PJ-IOT-IMPL2_Seam_Up_V1.0_Master_OSS_Attribution_Document_Draft_2019_06_14.pdf', 'OSS_Scan_Report.html');">
+                                Attribution
+                            </a>
+                        </ul>
+                    </div>
+
+                    <div class="oj-web-applayout-footer-item oj-web-applayout-max-width oj-text-secondary-color oj-text-sm">
+                        Copyright © 2014, 2019 Bosch and/or its affiliates All rights reserved.
+                    </div>
+                </footer>
+                <!--/ko-->
+            </div>
+        </div>
+        <script type="text/javascript" src="js/libs/require/require.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+<!--        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>-->
+
+    </div>
+</body>
+
+</html>

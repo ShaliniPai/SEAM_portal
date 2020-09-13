@@ -1,0 +1,9 @@
+{
+    "success": "true",
+    "routes": {
+        "devices": {
+            "label": "Devices",
+            "value": "admin/device/deviceRoute"
+        }
+    }
+}

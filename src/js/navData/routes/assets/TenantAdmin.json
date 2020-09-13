@@ -1,0 +1,12 @@
+{
+    "success": "true",
+    "routes": {
+        "assetList": {
+            "label": "Assets",
+            "value": "admin/asset/assetList",
+            "css": "fa fa-cubes",
+            "isDefault": true
+        }
+    }
+}
+

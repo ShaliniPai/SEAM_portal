@@ -1,0 +1,11 @@
+{
+    "success": "true",
+    "routes": {
+        "assetTypeList": {
+            "label": "Asset Type",
+            "value": "admin/asset/assetTypeList",
+            "css": "fa fa-list"
+        }
+    }
+}
+

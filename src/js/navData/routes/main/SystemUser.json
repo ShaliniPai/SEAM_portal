@@ -1,0 +1,31 @@
+{
+    "success": "true",
+    "routes": {
+        "dashboard": {
+            "label": "Dashboard"
+        },
+        "assets": {
+            "label": "Assets"
+        },
+        "admin": {
+            "label": "Setups"
+        }
+    },
+    "navData": [
+        {
+            "name": "Dashboard",
+            "id": "dashboard",
+            "iconClass": "oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24"
+        },
+        {
+            "name": "Assets",
+            "id": "assets",
+            "iconClass": "oj-navigationlist-item-icon fa fa-columns fa-2x"
+        },
+        {
+            "name": "Setups",
+            "id": "admin",
+            "iconClass": "oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24"
+        }
+    ]
+}

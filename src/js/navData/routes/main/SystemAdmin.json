@@ -1,0 +1,31 @@
+{
+    "success": "true",
+    "routes": {
+        "health": {
+            "label": "System Health"
+        },
+        "admin": {
+            "label": "Setups"
+        }, 
+        "acl": {
+            "label": "User Role Management"
+        }
+    },
+    "navData": [
+        {
+            "name": "System Health",
+            "id": "health",
+            "iconClass": "oj-navigationlist-item-icon fa fa-heartbeat fa-2x"
+        },
+        {
+            "name": "Setups",
+            "id": "admin",
+            "iconClass": "oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24"
+        },
+        {
+            "name": "Acl",
+            "id": "acl",
+            "iconClass": "oj-navigationlist-item-icon fa fa-users fa-2x"
+        }
+    ]
+}

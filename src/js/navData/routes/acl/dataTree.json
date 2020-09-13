@@ -1,0 +1,90 @@
+[{
+  "attr": {
+    "title": "Bangalore",
+    "id": "Bangalore"
+  },
+  "children": [
+    {
+      "attr": {
+        "title": "Elevator",
+        "id": "Elevator"
+      },
+      "children": [
+        {
+          "attr": {
+            "title": "kone-001",
+            "id": "kone-001"
+          },
+          "children": [
+            {
+              "attr": {
+                "title": "BGS-01",
+                "id": "get#parent#/",
+                "method": "get",
+                "parent": "device"
+              }
+            },
+            {
+              "attr": {
+                "title": "BGS-02",
+                "id": "get#parent#/device/getactivedevices",
+                "method": "get",
+                "parent": "device"
+              }
+            },
+            {
+              "attr": {
+                "title": "BGS-03",
+                "id": "get#parent#/device/getdevicecertificate/:deviceTenant/:deviceName",
+                "method": "get",
+                "parent": "device"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "attr": {
+    "title": "Coimbatore",
+    "id": "Coimbatore"
+  },
+  "children": [
+    {
+      "attr": {
+        "title": "Elevator",
+        "id": "Elevator1"
+      },
+      "children": [
+        {
+          "attr": {
+            "title": "elevator-01",
+            "id": "elevator-01"
+          },
+          "children": [
+            {
+              "attr": {
+                "title": "BGS-04",
+                "id": "/"
+              }
+            },
+            {
+              "attr": {
+                "title": "BGS-05",
+                "id": "/location/health"
+              }
+            },
+            {
+              "attr": {
+                "title": "BGS-06",
+                "id": "/location/count"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}]

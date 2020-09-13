@@ -1,0 +1,10 @@
+[
+	{
+	  "permissionName": "Admin",
+	  "permissionDescription": "Admin rights"
+	},
+	{
+	  "permissionName": "Super Admin",
+	  "permissionDescription": "Admin rights"
+	}
+ ]

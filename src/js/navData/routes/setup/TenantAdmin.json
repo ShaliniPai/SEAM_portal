@@ -1,0 +1,23 @@
+{
+    "routes": {
+        "AlertAndNotification": {
+            "label": "Alerts & Notifications",
+            "value": "admin/AlertAndNotification/alertRoute"
+        },
+        "assets": {
+            "label": "Assets",
+            "value": "admin/asset/assetRoute"
+        },
+        "locations": {
+            "label": "Locations",
+            "value": "admin/location/locationRoute"
+        },
+        "userProfile": {
+            "isDefault": true,
+            "label": "Users",
+            "value": "admin/user/userRoute"
+        }
+        
+    },
+    "success": "true"
+}

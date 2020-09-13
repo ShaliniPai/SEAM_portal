@@ -1,0 +1,167 @@
+[
+{
+      "Alerttype": "energyThreshold",
+      "Params": [
+         {
+            "Label": "Upper Threshold Energy",
+            "Key": "upperLimit",
+            "type": "Number",
+            "ParamValue": 1
+         },
+         {
+            "Label": "Lower Threshold Energy",
+            "Key": "lowerLimit",
+            "type": "Number",
+            "ParamValue": 1
+         }
+      ]
+   },
+
+{
+      "Alerttype": "LiftOffline",
+      "Params": [
+         {
+            "Label": "Offline Minutes Frequency",
+            "Key": "thresholdMin",
+            "type": "Number",
+            "ParamValue": 1
+         }
+      ]
+   },  
+     
+{
+      "Alerttype": "LiftOff",
+      "Params": [
+         {
+            "Label": "",
+            "Key": "thresholdMin",
+	    "type": "Number",
+            "ParamValue": 0
+
+         }
+      ]
+   },
+   {
+      "Alerttype": "DailyThresholdEnergy",
+      "Params": [
+         {
+            "Label": "Upper Threshold Energy",
+            "Key": "upperLimit",
+            "type": "Number",
+            "ParamValue": 1
+         },
+         {
+            "Label": "Lower Threshold Energy",
+            "Key": "lowerLimit",
+            "type": "Number",
+            "ParamValue": 1
+         }
+      ]
+   },
+   {
+      "Alerttype": "maintMileageThreshold",
+      "Params": [
+         {
+            "Label": "Percentage of Floors Travelled",
+            "Key": "percentageMileageThreshold",
+            "type": "Number",
+            "ParamValue": 1
+         }
+      ]
+   },
+   {
+      "Alerttype": "dailyMileageThreshold",
+      "Params": [
+         {
+            "Label": "Percentage of Floors Travelled",
+            "Key": "dailyMileageThreshold",
+            "type": "Number",
+            "ParamValue": 1
+         }
+      ]
+   },
+   {
+      "Alerttype": "mileageThresholdNilm",
+      "Params": [
+         {
+            "Label": "Percentage of Floors Travelled",
+            "Key": "dailyMileageThresholdNilm",
+            "type": "Number",
+            "ParamValue": 1
+         }
+      ]
+   },
+   {
+      "Alerttype": "doorCycleThreshold",
+      "Params": [
+         {
+            "Label": "Percentage of Door Cycle",
+            "Key": "percentageDoorCycleThreshold",
+            "type": "Number",
+            "ParamValue": 1
+         }
+      ]
+   },
+   {
+      "Alerttype": "doorCycleThresholdNilm",
+      "Params": [
+         {
+            "Label": "Percentage of Door Cycle",
+            "Key": "percentageDoorCycleThresholdNilm",
+            "type": "Number",
+            "ParamValue": 1
+         }
+      ]
+   },
+   {
+      "Alerttype": "liftVelocityThreshold",
+      "Params": [
+         {
+            "Label": "Upper Velocity Threshold",
+            "Key": "upperVelocityTH",
+            "type": "Number",
+            "ParamValue": 1
+         },
+         {
+            "Label": "Lower Velocity Threshold",
+            "Key": "lowerVelocityTH",
+            "type": "Number",
+            "ParamValue": 1
+         }
+      ]
+   },
+   {
+      "Alerttype": "liftAccelerationThreshold",
+      "Params": [
+         {
+            "Label": "Upper Acceleration Threshold",
+            "Key": "upperAccelerationTH",
+            "type": "Number",
+            "ParamValue": 1
+         },
+         {
+            "Label": "Lower Acceleration Threshold",
+            "Key": "lowerAccelerationTH",
+            "type": "Number",
+            "ParamValue": 1
+         }
+      ]
+   },
+   {
+      "Alerttype": "deviceBasedOffline",
+      "Params": [
+         {
+            "Label": "NILM Offline Minutes",
+            "Key": "nilmOfflineMinutes",
+            "type": "Number",
+            "ParamValue": 1
+         },
+         {
+            "Label": "MMU Offline Minutes",
+            "Key": "mmuOfflineMinutes",
+            "type": "Number",
+            "ParamValue": 1
+         }
+      ]
+   }
+]

@@ -1,0 +1,221 @@
+<div id="asset" class="col-xs-12 pad">
+    <h2 class="bold text-primary">Add/Update Assets</h2>
+    <br>
+    <!--        ko if:ready()-->
+
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#main" data-toggle="tab" aria-expanded="false" class="bold text-primary">Main</a></li>
+            <li class=""><a href="#level" data-toggle="tab" aria-expanded="false" class="bold text-primary">Levels</a></li>
+            <li class="" data-bind="css: { disabled: !updateMode(),disabledTab:!updateMode() }" ><a href="#model" data-toggle="tab" aria-expanded="false" class="bold text-primary">Model Properties</a></li>
+            <li class="" data-bind="css: { disabled: !updateMode(),disabledTab:!updateMode() }"><a href="#type" data-toggle="tab" aria-expanded="false" class="bold text-primary">Asset Type Properties</a></li>
+            <li class="" data-bind="css: { disabled: !updateMode(),disabledTab:!updateMode() }"><a href="#device" data-toggle="tab" aria-expanded="false" class="bold text-primary">Devices</a></li>
+        </ul>
+        <hr>
+        <div class="tab-content">
+            <div class="tab-pane active" id="main">
+                <h4 class="text-primary">General Info</h4>
+
+                <form role="form"> 
+
+                    <div class="form-group"> 
+                        <label for="title" class="control-label">Asset Id</label>
+                        <input class="form-control disabled" id="title" required="true" type="text" data-bind="textInput:assetId,attr: { disabled: updateMode() }" >
+                    </div> 
+
+
+                    <div class="form-group"> 
+                        <label for="title" class="control-label">Asset Name</label>
+                        <input class="form-control disabled" id="title" required="true" type="text" data-bind="textInput:assetName" >
+                    </div> 
+
+
+                    <div class="form-group">
+                        <oj-label for="assetType" class="control-label">Asset Type</oj-label>
+                        <!--ko if:typeLkpReady-->
+                        <oj-combobox-one data-bind="attr: { disabled: updateMode() }"
+                                         id="assetType" 
+                                         options="[[types]]"  
+                                         value="{{assetType}}"
+                                         placeholder="Select Asset Type">
+                        </oj-combobox-one>
+                        <!--/ko-->
+                    </div> 
+
+                    <div class="form-group">                         
+                        <oj-label for="assetModel" class="control-label">Asset Model</oj-label>
+                        <!--ko if:modelLkpReady-->
+                        <oj-combobox-one data-bind="attr: { disabled: updateMode() }"
+                                         id="assetModel" 
+                                         options="[[models]]"  
+                                         value="{{assetModel}}"
+                                         placeholder="Select Asset Model" >
+                        </oj-combobox-one>
+                        <!--/ko-->
+                    </div> 
+
+                    <div class="form-group">
+                        <oj-label for="locId" class="control-label">Asset Location</oj-label>
+                        <!--ko if:locLkpReady-->
+                        <oj-combobox-one 
+                            id="locId" 
+                            options="[[locations]]"  
+                            value="{{locId}}"
+                            placeholder="Select Location" >
+                        </oj-combobox-one>
+                        <!--/ko-->
+                    </div> 
+
+                    <div class="form-group">
+                        <oj-label class="oj-label" for="maintDt">Last Maintenance</oj-label>
+                        <oj-input-date id="maintDt" value='{{maintDt}}'>
+                    </div> 
+
+
+                    <div class="form-group">
+                        <oj-label class="oj-label" for="switch">Asset Enabled</oj-label>
+                        <oj-switch id="switch" value="{{enabled}}"></oj-switch>
+                    </div> 
+                </form>
+
+            </div>
+            <div class="tab-pane" id="level">
+                <h4 class="text-primary">Asset Levels</h4>
+                <div class="col-sm-12">
+                    <!--ko foreach:levelsArray-->
+                    <div class="form-group"> 
+                        <label for="title" class="control-label" data-bind="text:label"></label>
+                        <input class="form-control disabled" id="title" required="true" type="text" data-bind="textInput:value" >
+                    </div> 
+                    <!--/ko-->
+                </div>
+            </div>
+            <div class="tab-pane" id="model">
+                <h4 class="text-primary">Model Properties</h4>
+                <div class="col-sm-12">
+                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Property</th>
+                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Value</th>
+                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--ko foreach:modelKeysArray-->
+                            <tr role="row" class="odd">
+                                <td class="sorting_1"><input class="form-control disabled"  type="text" disabled=true data-bind="textInput:key"></td>
+                                <td class="sorting_1"><input class="form-control disabled"  type="text" disabled=true  data-bind="textInput:value"></td>
+                                <td class="sorting_1"><input class="form-control disabled"  type="text" disabled=true  data-bind="textInput:desc"></td>
+                            </tr>
+                            <!--/ko-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="type">
+                <h4 class="text-primary">Type Properties</h4>
+                <div class="col-sm-12">
+                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Property</th>
+                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Value</th>
+                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--ko foreach:typeKeysArray-->
+                            <tr role="row" class="odd">
+                                <td class="sorting_1"><input class="form-control disabled"  disabled=true type="text" data-bind="textInput:key"></td>
+                                <td class="sorting_1"><input class="form-control disabled"  disabled=true type="text"  data-bind="textInput:value"></td>
+                                <td class="sorting_1"><input class="form-control disabled" type="text" disabled=true data-bind="textInput:desc"></td>                        
+                            </tr>
+                            <!--/ko-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="device">
+                <h4 class="text-primary">Devices Assigned</h4>
+
+                <div class="col-sm-12">
+                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Type</th>
+                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Device Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--ko foreach:devsArray-->
+                            <tr role="row" class="odd">
+                                <td class="sorting_1" data-bind="text:devType"> </td>
+                                <td class="sorting_1" data-bind="text:devName"> </td>
+                                <td><button class="fa fa-trash fa-2x" data-bind="click:function(){$parent.deleteDev($data,$index)}"> </button></td>
+                            </tr>
+                            <!--/ko-->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pull-right">
+                    <button type="button" class="btn btn-primary"
+                            data-bind="click: function() {
+                            document.querySelector('#modalDialog5').open();
+                            readyRegisterDevice(true);
+                             },attr: { disabled: !updateMode() }">Add Device</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group"> 
+            <input class="btn btn-primary" data-bind="click: saveAsset" value="Save" >
+            <input class="btn btn-danger" data-bind="click: cancel" value="Cancel"> 
+            <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default" data-bind="click:openTags,attr: { disabled: !updateMode() }">Tags</button> -->
+        </div> 
+        <br>
+    </div>
+    <!--/ko-->
+
+    <!--        ko if:!ready()-->
+    <div class="overlay col-md-12">
+        <i class="fa fa-refresh fa-spin fa-5x"></i>
+    </div>
+    <!--/ko-->
+</div>
+
+
+
+<div class="modal fade" id="modal-default" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Tags</h4>
+            </div>
+            <div class="modal-body">
+                <!--ko if:readyTags-->
+                <div data-bind="ojModule: {name: 'tags',params:tagsArray ,cacheKey: 'tags'}"></div> 
+                <!--/ko-->
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+<oj-dialog style="display:none;width:550px;height:600px" id="modalDialog5" title="Attach Device">
+    <div slot="body">
+        <!--ko if:readyRegisterDevice-->
+        <div data-bind="ojModule: {name: 'admin/asset/assetDeviceReg',params:{assetId:assetId(),assetType:assetType()} ,cacheKey: 'tags'}"></div> 
+        <!--/ko-->
+    </div>
+</oj-dialog>

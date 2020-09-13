@@ -1,0 +1,26 @@
+{
+    "success": "true",
+    "routes": {
+        "devices": {
+            "label": "Devices",
+            "value": "admin/device/deviceRoute"
+        },
+        "tenant": {
+            "label": "Tenants",
+            "value": "admin/tenant/tenantRoute"
+        },
+        "userProfile": {
+            "label": "Users",
+            "value": "admin/user/userRoute",
+            "isDefault": true
+        },
+        "devices": {
+            "label": "Devices",
+            "value": "admin/device/deviceRoute"
+        },
+        "assets": {
+            "label": "Assets",
+            "value": "admin/asset/assetRoute"
+        }
+    }
+}
